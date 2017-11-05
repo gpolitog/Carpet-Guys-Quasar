@@ -140,7 +140,7 @@
   }
 
   .logo {
-    background-image: url('../../assets/carpetGuysMobile.jpg');
+    background-image: url('../../assets/carpetGuysMobile.png');
     background-repeat: no-repeat;
     grid-column-start: 1;
     grid-column-end: 4;
