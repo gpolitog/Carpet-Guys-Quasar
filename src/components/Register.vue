@@ -1,25 +1,22 @@
 <template>
   <div class="main">
-    home
+    <div> Register </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'home',
+    name: 'register',
     created () {
       if (this.logged === true) {
-        this.$router.push('/call')
-      }
-      else {
-        this.$router.push('/login')
+        this.$router.push('/account')
       }
     },
     data: function () {
       return {
-        logged: false
       }
-    }
+    },
+    props: ['logged']
   }
 </script>
 

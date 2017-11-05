@@ -81,7 +81,7 @@
           this.$router.push('/login')
         }
         else {
-          this.$router.push('/call')
+          this.$router.push('/account')
         }
         this.isToggled = false
         x = false
@@ -98,11 +98,6 @@
       },
       accountNav: function () {
         this.$router.push('/account')
-        this.isToggled = false
-        x = false
-      },
-      callNav: function () {
-        this.$router.push('/call')
         this.isToggled = false
         x = false
       },
