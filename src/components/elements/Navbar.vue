@@ -117,8 +117,8 @@
   @secondaryColor: #1a222e;
   @paymentColor: #519d10;
   @medicalColor: #ee1f34;
-  @darkTR: #1a222e;
-  @lightTR: #3f62ad;
+  @darkTR: #000;
+  @lightTR: #444;
   @textColor: #9fb0d6;
   @baseFontSize: 1em;
   @boldText: "Candara";
