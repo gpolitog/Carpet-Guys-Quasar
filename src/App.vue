@@ -25,7 +25,7 @@ export default {
       user: {
         token: '',
         id: '',
-        isLoggedIn: false
+        isLoggedIn: true
       }
     }
   },

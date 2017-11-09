@@ -9,6 +9,7 @@
         <div v-on:click="loginNav" v-bind:class="login">Login</div>
         <div v-on:click="registerNav" v-bind:class="login">Register</div>
         <div v-on:click="accountNav" v-bind:class="logged">Account</div>
+        <div v-on:click="timeClockNav" v-bind:class="logged">Time Clock</div>
         <div v-on:click="logOut" v-bind:class="logged">Log Out</div>
       </center>
     </div>
@@ -98,6 +99,11 @@
       },
       accountNav: function () {
         this.$router.push('/account')
+        this.isToggled = false
+        x = false
+      },
+      timeClockNav: function () {
+        this.$router.push('/timeclock')
         this.isToggled = false
         x = false
       },
