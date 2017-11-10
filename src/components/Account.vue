@@ -11,7 +11,7 @@
       <input type="text" class="firstNameEdit" v-model="user.firstName" placeholder="First Name" required></input>
       <input type="text" class="middleNameEdit" v-model="user.middleName" placeholder="Mi" required></input>
       <input type="text" class="lastNameEdit" v-model="user.lastName" placeholder="Last Name" required></input><br/>
-      <input type="number" class="phoneEdit" v-model="user.phoneNumber" placeholder="Phone Number" required></input><br/>
+      <input type="tel" class="phoneEdit" v-model="user.phoneNumber" placeholder="Phone Number" required></input><br/>
       <input type="password" class="password" v-model="user.password" placeholder="Password" required></input>
       <button class="confirmButton" v-on:click="submit">Confirm Changes</button>
     </div>
@@ -94,6 +94,43 @@ export default {
 
 <style scoped lang="less">
   .main {
+    text-align: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
   }
 
+  .userName {
+
+  }
+
+  .salutation {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+
+  .firstName {
+
+  }
+
+  .middleName {
+
+  }
+
+  .lastName {
+
+  }
+
+  .phoneNumber {
+
+  }
+
+  .password {
+
+  }
+
+  .confirmButton {
+
+  }
 </style>

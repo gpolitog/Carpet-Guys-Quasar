@@ -109,7 +109,7 @@
    margin-right: 0px;
    margin-bottom: 0px;
    padding-left: 0px;
-   padding-right:0px;
+   padding-right: 0px;
    display: grid;
    grid-template-columns: 100%;
    grid-template-rows: 20px 500px 10px 20px;
