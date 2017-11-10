@@ -5,6 +5,7 @@ const Login = () => import('./components/Login')
 const Register = () => import('./components/Register')
 const Account = () => import('./components/Account')
 const TimeClock = () => import('./components/elements/TimeClock')
+const Jobs = () => import('./components/Jobs')
 Vue.use(Router)
 
 export default new Router({
@@ -33,6 +34,11 @@ export default new Router({
       path: '/timeclock',
       name: 'TimeClock',
       component: TimeClock
+    },
+    {
+      path: '/jobs',
+      name: 'Jobs',
+      component: Jobs
     }
   ]
 })
