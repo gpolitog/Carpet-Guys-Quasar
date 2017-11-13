@@ -99,13 +99,17 @@
 </script>
 
 <style scoped lang="less">
-  @buttonColor: #333;
+  @buttonColor: #f4c20d;
+  @font-face: bebas neue;
   .main {
+    display: grid;
     grid-template-columns: 10px 1fr 1fr 10px;
     grid-template-rows: repeat(60px, 6);
   }
 
   .clock {
+  text-align: center;
+  font-family: @font-face;
   font-size: 4em;
   grid-row: 1;
   grid-column-start: 2;
@@ -113,6 +117,10 @@
   }
 
   .clockIn {
+    font-size: 2em;
+    font-family: @font-face;
+    text-align: center;
+    margin-left: 20px;
     width: 100px;
     height: 80px;
     line-height: 80px;
@@ -123,6 +131,10 @@
   }
 
   .clockOut {
+    font-size: 2em;
+    font-family: @font-face;
+    text-align: center;
+    margin-left: 20px;
     width: 100px;
     height: 80px;
     line-height: 80px;
@@ -133,6 +145,11 @@
   }
 
   .lunchIn {
+    font-size: 1.5em;
+    font-family: @font-face;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
     width: 100px;
     height: 80px;
     line-height: 80px;
@@ -143,10 +160,15 @@
   }
 
   .lunchOut {
+    font-size: 1.4em;
+    font-family: @font-face;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
     width: 100px;
     height: 80px;
     line-height: 80px;
-    border-radius: 6px;
+    border-radius: 5px;
     background-color: @buttonColor;
     grid-row: 3;
     grid-column: 3;
