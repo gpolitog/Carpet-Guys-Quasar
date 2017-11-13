@@ -1,79 +1,74 @@
 <template>
   <div class="main">
     <div class="month">
- <ul>
-   <li class="prev">&#10094;</li>
-   <li class="next">&#10095;</li>
-   <li>
-     August<br>
-     <span style="font-size:18px">2017</span>
-   </li>
- </ul>
-</div>
+      <div>{{ this.month }}</div>
+      <div class="prev">&#10094;</div>
+      <div class="next">&#10095;</div>
+      <div>{{this.year}}</div>
+    </div>
+    <div class="weekdays">
+      <div class="monday">Mo</div>
+      <div class="tuesday">Tu</div>
+      <div class="wednesday">We</div>
+      <div class="thursday">Th</div>
+      <div class="friday">Fr</div>
+      <div class="saturday">Sa</div>
+      <div class="sunday">Su</div>
+    </div>
+    <div class="days">
+      <div>1</div>
+    </div>
 
-<ul class="weekdays">
- <li>Mo</li>
- <li>Tu</li>
- <li>We</li>
- <li>Th</li>
- <li>Fr</li>
- <li>Sa</li>
- <li>Su</li>
-</ul>
-
-<ul class="days">
- <li>1</li>
- <li>2</li>
- <li>3</li>
- <li>4</li>
- <li>5</li>
- <li>6</li>
- <li>7</li>
- <li>8</li>
- <li>9</li>
- <li><span class="active">10</span></li>
- <li>11</li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
- <li></li>
-      <li></li>
-    </ul>
+      <div>{{this.days}}</div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {}
+  created () {
+    let time = new Date()
+    let month = time.month
+    alert(month)
+  // month -> {}# of days
+  },
+  data: { // number of days
+    days: [
+      { month: 'january', days: 31, startingDay: 'monday' },
+      { month: 'feburary', days: 28, startingDay: 'thursday' }, // 29
+      { month: 'march', days: 31, startingDay: 'thursday' },
+      { month: 'april', days: 30, startingDay: 'sunday' },
+      { month: 'may', days: 31, startingDay: 'tuesday' },
+      { month: 'june', days: 30, startingDay: 'friday' },
+      { month: 'july', days: 31, startingDay: 'sunday' },
+      { month: 'august', days: 31, startingDay: 'wednesday' },
+      { month: 'september', days: 30, startingDay: 'saturday' },
+      { month: 'october', days: 31, startingDay: 'monday' },
+      { month: 'november', days: 30, startingDay: 'thursday' },
+      { month: 'december', days: 31, startingDay: 'saturday' }
+    ]
   }
 }
+// for (i < #of days) {push i onto days recieving array in html}
 </script>
 
 <style>
 .main {
-
+  font-family: Tahoma;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px 60px 200px;
 }
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
-
 /* Month header */
 .month {
     padding: 70px 25px;
     width: 100%;
-    background: #1abc9c;
+    background: #f4c20d;
     text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
 
 /* Month list */
@@ -106,13 +101,18 @@ body {font-family: Verdana, sans-serif;}
     margin: 0;
     padding: 10px 0;
     background-color:#ddd;
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
 .weekdays li {
-    display: inline-block;
     width: 13.6%;
     color: #666;
-    text-align: center;
 }
 
 /* Days (1-31) */
@@ -120,12 +120,57 @@ body {font-family: Verdana, sans-serif;}
     padding: 10px 0;
     background: #eee;
     margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 4;
+    grid-row-end: 4;
 }
-
+.monday{
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.tuesday {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.wednesday {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.thursday {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.friday {
+  grid-column-start: 5;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.saturday {
+  grid-column-start: 6;
+  grid-column-end: 6;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.sunday {
+  grid-column-start: 7;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
 .days li {
     list-style-type: none;
-    display: inline-block;
-    width: 13.6%;
+    display: inline;
+    width: 10%;
     text-align: center;
     margin-bottom: 5px;
     font-size:12px;
@@ -135,7 +180,7 @@ body {font-family: Verdana, sans-serif;}
 /* Highlight the "current" day */
 .days li .active {
     padding: 5px;
-    background: #1abc9c;
+    background: #f4c20d;
     color: white !important
 }
 </style>
