@@ -23,6 +23,7 @@ import axios from 'axios'
 export default {
   created () {
     var vue = this
+    clearInterval()
     if (this.logged === false) {
       this.$router.push('/login')
     }
@@ -62,7 +63,7 @@ export default {
   },
   props: ['logged'],
   methods: {
-    toggleEdit () {
+    accountEdit () {
       this.edit = true
     },
     submit () {

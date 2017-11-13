@@ -22,6 +22,7 @@
   export default {
     name: 'login',
     created () {
+      clearInterval()
       if (this.logged === true) {
         this.$router.push('/account')
       }

@@ -57,6 +57,9 @@
 export default {
   data () {
     return {}
+  },
+  created () {
+    clearInterval()
   }
 }
 </script>
