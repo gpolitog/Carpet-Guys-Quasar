@@ -123,22 +123,22 @@
   @secondaryColor: #1a222e;
   @paymentColor: #519d10;
   @medicalColor: #ee1f34;
-  @darkTR: #1a222e;
-  @lightTR: #3f62ad;
+  @dark: #161817;
+  @light: #6b6b6b;
   @textColor: #9fb0d6;
   @baseFontSize: 1em;
-  @boldText: "Candara";
+  @boldText: "bebas neue";
   @sideText: "AdventPro";
   @bodyText: "LiberationSans";
 
   .nav {
     height: 80px;
-    background: #0c2069;
-    background-image: -webkit-linear-gradient(top, @lightTR, @darkTR);
-    background-image: -moz-linear-gradient(top, @lightTR, @darkTR);
-    background-image: -ms-linear-gradient(top, @lightTR, @darkTR);
-    background-image: -o-linear-gradient(top, @lightTR, @darkTR);
-    background-image: linear-gradient(to bottom, @lightTR, @darkTR);
+    background: #161817;
+    background-image: -webkit-linear-gradient(top, @light, @dark);
+    background-image: -moz-linear-gradient(top, @light, @dark);
+    background-image: -ms-linear-gradient(top, @light, @dark);
+    background-image: -o-linear-gradient(top, @light, @dark);
+    background-image: linear-gradient(to bottom, @light, @dark);
     display: grid;
     grid-template-columns: 10px repeat(5, 1fr) 10px;
     z-index: 2;
@@ -181,16 +181,16 @@
   .navtile {
     width: 90%;
     height: 40px;
-    line-height: 40px;
+    line-height: 35px;
     border-radius: 10px;
     margin: 10px 0;
     padding: 4px;
     background: #0c2069;
-      background-image: -webkit-linear-gradient(top, @darkTR, @lightTR);
-      background-image: -moz-linear-gradient(top, @darkTR, @lightTR);
-      background-image: -ms-linear-gradient(top, @darkTR, @lightTR);
-      background-image: -o-linear-gradient(top, @darkTR, @lightTR);
-      background-image: linear-gradient(to bottom, @darkTR, @lightTR);
+      background-image: -webkit-linear-gradient(top, @dark, @light);
+      background-image: -moz-linear-gradient(top, @dark, @light);
+      background-image: -ms-linear-gradient(top, @dark, @light);
+      background-image: -o-linear-gradient(top, @dark, @light);
+      background-image: linear-gradient(to bottom, @dark, @light);
     text-align: center;
     font-family: @boldText;
     font-size: @baseFontSize + 1em;
