@@ -155,8 +155,10 @@
 
   .clockIn {
     font-size: 2em;
+    font-weight: bold;
     font-family: @font-face;
     text-align: center;
+    margin-top: 20px;
     margin-left: 20px;
     width: 100px;
     height: 80px;
@@ -169,8 +171,10 @@
 
   .clockOut {
     font-size: 2em;
+    font-weight: bold;
     font-family: @font-face;
     text-align: center;
+    margin-top: 20px;
     margin-left: 20px;
     width: 100px;
     height: 80px;
@@ -182,7 +186,8 @@
   }
 
   .lunchIn {
-    font-size: 1.5em;
+    font-size: 1.1em;
+    font-weight: bold;
     font-family: @font-face;
     text-align: center;
     margin-top: 20px;
@@ -197,7 +202,8 @@
   }
 
   .lunchOut {
-    font-size: 1.4em;
+    font-size: 1.1em;
+    font-weight: bold;
     font-family: @font-face;
     text-align: center;
     margin-top: 20px;

@@ -88,41 +88,49 @@
         }
         this.isToggled = false
         x = false
+        clearInterval()
       },
       loginNav: function () {
         this.$router.push('/login')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       registerNav: function () {
         this.$router.push('/register')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       accountNav: function () {
         this.$router.push('/account')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       timeClockNav: function () {
         this.$router.push('/timeclock')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       jobsNav: function () {
         this.$router.push('/jobs')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       scheduleNav: function () {
         this.$router.push('/schedule')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       logOut: function () {
         this.isToggled = false
         x = false
         this.$emit('logOut')
+        clearInterval()
       }
     }
   }

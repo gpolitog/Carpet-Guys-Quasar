@@ -26,12 +26,11 @@ import axios from 'axios'
 export default {
   created () {
     var vue = this
-    clearInterval()
     if (this.logged === false) {
       this.$router.push('/login')
     }
     else {
-      axios.get('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }})
+      axios.get('https://')
         .then(function (response) {
           vue.user = response.data
         })
@@ -85,9 +84,8 @@ export default {
     },
     submit () {
       var vue = this
-      axios.put('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }}, {
+      axios.put('https://', {
         email: this.user.email.toLowerCase(),
-        password: this.user.password,
         salutation: this.user.salutation,
         firstName: this.user.firstName.toLowerCase(),
         middleName: this.user.middleName.toLowerCase(),
@@ -98,8 +96,6 @@ export default {
         city: this.user.city.toLowerCase(),
         state: this.user.state,
         zipCode: this.user.zipCode,
-        cardNumber: this.user.cardNumber,
-        cardDate: this.user.cardDate,
         cvv: this.user.cvv
       })
         .then(function () {
@@ -160,5 +156,5 @@ export default {
       grid-template-columns: 1fr;
       grid-template-rows: 70px 70px 70px 70px 70px 70px 70px;
     }
-    
+
 </style>
