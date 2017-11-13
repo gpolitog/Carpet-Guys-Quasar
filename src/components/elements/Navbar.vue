@@ -141,7 +141,7 @@
   @lightTR: #444;
   @textColor: #9fb0d6;
   @baseFontSize: 1em;
-  @boldText: "bebas neue";
+  @boldText: "tahoma";
   @sideText: "AdventPro";
   @bodyText: "LiberationSans";
 
@@ -195,7 +195,7 @@
   .navtile {
     width: 90%;
     height: 40px;
-    line-height: 35px;
+    line-height: 25px;
     border-radius: 10px;
     margin: 10px 0;
     padding: 4px;

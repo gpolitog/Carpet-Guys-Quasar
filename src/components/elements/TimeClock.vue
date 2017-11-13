@@ -100,7 +100,7 @@
 
 <style scoped lang="less">
   @buttonColor: #f4c20d;
-  @font-face: bebas neue;
+  @font-face: tahoma;
   .main {
     display: grid;
     grid-template-columns: 10px 1fr 1fr 10px;
@@ -145,7 +145,7 @@
   }
 
   .lunchIn {
-    font-size: 1.5em;
+    font-size: 1em;
     font-family: @font-face;
     text-align: center;
     margin-top: 20px;
@@ -160,7 +160,7 @@
   }
 
   .lunchOut {
-    font-size: 1.4em;
+    font-size: 1em;
     font-family: @font-face;
     text-align: center;
     margin-top: 20px;

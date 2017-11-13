@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div v-bind:class="accountEditLogic">
-      <h1>Please enter Account Info</h1>
+      <h1>PLEASE ENTER ACCOUNT INFO</h1>
       <input type="text" class="userNameEdit" v-model="user.email" placeholder="Email Address" required></input>
       <select class="salutationEdit" v-model="user.salutation">
         <option value="mr">Mr.</option>
@@ -15,8 +15,21 @@
       <input type="password" class="password" v-model="user.password" placeholder="Password" required></input>
       <button class="confirmButton" v-on:click="submit">Confirm Changes</button>
     </div>
-    <div v-bind:class="accountLogic">
-      <h1>Account</h1>
+  <div v-bind:class="accountLogic">
+      <h1 class="acctitle">ACCOUNT</h1>
+    <div class="acctinfo">
+      <p class="email">{{this.user.email}}</p>
+      <p class="firstname">{{this.user.firstName}}</p>
+      <p class="lastname">{{this.user.lastName}}</p>
+      <p class="phonenum">{{this.user.phoneNumber}}</p>
+      <p class="addressone">{{this.user.addressOne}}</p>
+      <p class="city">{{this.user.city}}</p>
+      <p class="state">{{this.user.state}}</p>
+      <p class="cardnum">{{this.user.cardNumber}}</p>
+      <p class="carddate">{{this.user.cardDate}}</p>
+      <p class="ccv">{{this.user.ccv}}</p>
+    </div>
+      <button class="editButton" v-on:click="edit">Edit Info</button>
     </div>
   </div>
 </template>
@@ -42,21 +55,21 @@ export default {
   data: function () {
     return {
       user: {
-        email: '',
+        email: 'user@gmail.com',
         password: '',
         salutation: '',
-        firstName: '',
+        firstName: 'Bob',
         middleName: '',
-        lastName: '',
-        phoneNumber: '',
-        addressOne: '',
+        lastName: 'Carpetman',
+        phoneNumber: '555-555-5555',
+        addressOne: '123 abc st.',
         addressTwo: '',
-        city: '',
-        state: '',
+        city: 'phoenix',
+        state: 'arizona',
         zipCode: '',
-        cardNumber: '',
-        cardDate: '',
-        cvv: ''
+        cardNumber: '1234567890',
+        cardDate: '1/1/18',
+        cvv: '789'
       },
       error: '',
       tabSelected: 0,
@@ -115,7 +128,7 @@ export default {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 70px 70px 70px 70px 70px 70px 70px;
+    grid-template-rows: repeat(13,70px);
     overflow: hidden;
     }
   hidden {
@@ -124,14 +137,14 @@ export default {
     }
   h1 {
     line-height: 50px;
-    font-family: bebas neue;
-    font-size: 2em;
+    font-family: tahoma;
+    font-size: 1.4em;
     text-align: center;
     background-color: #f4c20d;
     margin-top: 30px;
     }
     .userNameEdit {
-    margin: 10px;
+      margin: 10px;
     }
     .firstNameEdit {
       margin: 10px;
@@ -156,8 +169,57 @@ export default {
 /* Account info display */
     .account {
       display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 70px 70px 70px 70px 70px 70px 70px;
+      grid-template-columns: repeat(4, 5em);
+      grid-template-rows: repeat(10, 70px);
     }
-    
+    h1 {
+      width: auto;
+      height: 40px;
+      line-height: 10px;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row: 1;
+    }
+    .acctinfo {
+      display: grid;
+      grid-template-columns: 1;
+      grid-template-rows: repeat(10, 70px);
+    }
+    p {
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+    .email {
+      grid-row: 4;
+    }
+    .acctitle {
+      grid-column-start: 1;
+      grid-column-end: 5;
+    }
+    .firstname {
+      grid-row: 1;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+    .lastname {
+      grid-row: 1;
+      grid-column-start: 2;
+      grid-column-end: 5;
+    }
+    .phonenum {
+      grid-row: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+    .addressone {
+      grid-row: 2;
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
+    .city {
+      margin-top: 40px;
+      grid-row: 2;
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
 </style>
