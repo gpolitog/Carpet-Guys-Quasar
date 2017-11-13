@@ -10,7 +10,9 @@
         <div v-on:click="registerNav" v-bind:class="login">Register</div>
         <div v-on:click="accountNav" v-bind:class="logged">Account</div>
         <div v-on:click="timeClockNav" v-bind:class="logged">Time Clock</div>
+        <div v-on:click="jobsNav" v-bind:class="logged">Jobs</div>
         <div v-on:click="logOut" v-bind:class="logged">Log Out</div>
+        <div v-on:click="scheduleNav" v-bind:class="logged">Schedule</div>
       </center>
     </div>
   </div>
@@ -107,6 +109,16 @@
         this.isToggled = false
         x = false
       },
+      jobsNav: function () {
+        this.$router.push('/jobs')
+        this.isToggled = false
+        x = false
+      },
+      scheduleNav: function () {
+        this.$router.push('/schedule')
+        this.isToggled = false
+        x = false
+      },
       logOut: function () {
         this.isToggled = false
         x = false
@@ -125,6 +137,8 @@
   @medicalColor: #ee1f34;
   @dark: #161817;
   @light: #6b6b6b;
+  @darkTR: #000;
+  @lightTR: #444;
   @textColor: #9fb0d6;
   @baseFontSize: 1em;
   @boldText: "bebas neue";
