@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div v-bind:class="accountEdit">
+    <div v-bind:class="accountEditLogic">
       <h1>Please enter Account Info</h1>
       <input type="text" class="userNameEdit" v-model="user.email" placeholder="Email Address" required></input>
       <select class="salutationEdit" v-model="user.salutation">
@@ -14,6 +14,9 @@
       <input type="tel" class="phoneEdit" v-model="user.phoneNumber" placeholder="Phone Number" required></input><br/>
       <input type="password" class="password" v-model="user.password" placeholder="Password" required></input>
       <button class="confirmButton" v-on:click="submit">Confirm Changes</button>
+    </div>
+    <div v-bind:class="accountLogic">
+      <h1>Account</h1>
     </div>
   </div>
 </template>
@@ -62,6 +65,20 @@ export default {
     }
   },
   props: ['logged'],
+  computed: {
+    accountEditLogic: function () {
+      return {
+        accountEdit: this.edit,
+        hidden: !this.edit
+      }
+    },
+    accountLogic: function () {
+      return {
+        account: !this.edit,
+        hidden: this.edit
+      }
+    }
+  },
   methods: {
     accountEdit () {
       this.edit = true
@@ -98,70 +115,50 @@ export default {
     margin-top: 10px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 200px 100px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 70px 70px 70px 70px 70px 70px;
     overflow: hidden;
     }
+  hidden {
+     display: none;
 
-  .status {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row: 1;
-  }
-
-  .usercontact {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row: 2;
-  }
-
-  .jobcontact {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row: 2;
-  }
-
-  .promo {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row: 3;
+    }
+  h1 {
+    line-height: 50px;
+    font-family: bebas neue;
+    font-size: 2em;
     text-align: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-  }
+    background-color: #f4c20d;
+    margin-top: 30px;
+    }
+    .userNameEdit {
+    margin: 10px;
+    }
+    .firstNameEdit {
+      margin: 10px;
+    }
+    .middleNameEdit {
+      margin: 10px;
+    }
+    .lastNameEdit {
+      margin: 10px;
+    }
+    .phoneEdit {
+      margin: 10px;
+    }
+    .password {
+      margin: 10px;
+    }
+    .confirmButton {
+      margin: 10px;
+      background-color: #f4c20d;
+    }
 
-  .userName {
-
-  }
-
-  .salutation {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 2;
-    grid-row-end: 2;
-  }
-
-  .firstName {
-
-  }
-
-  .middleName {
-
-  }
-
-  .lastName {
-
-  }
-
-  .phoneNumber {
-
-  }
-
-  .password {
-
-  }
-
-  .confirmButton {
-
-  }
+/* Account info display */
+    .account {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 70px 70px 70px 70px 70px 70px 70px;
+    }
+    
 </style>
