@@ -13,11 +13,12 @@
   export default {
     name: 'TimeClock',
     created () {
-    /*  axios.get('https://', {
+    /*   let vue = this
+     axios.get('https://', {
 
       })
         .then(response => {
-
+          vue.lastClockType = response.data.lastClockType
         })
         .catch(response => {
           console.log(response)
@@ -30,6 +31,8 @@
         minutes: '',
         seconds: '',
         clockType: '',
+        lastClockType: '',
+        clockTime: '',
         latitude: '',
         longitude: '',
         altitude: '',
@@ -41,12 +44,16 @@
     methods: {
       clock () {
         let vue = this
-        vue.location = navigator.geolocation.getCurrentPosition(vue.locationSuccess, vue.locationFail)
-        vue.time = new Date()
+        navigator.geolocation.getCurrentPosition(vue.locationSuccess, vue.locationFail)
+        this.time = new Date()
+        vue.hours = vue.time.getHours()
+        vue.minutes = vue.time.getMinutes()
+        vue.seconds = vue.time.getSeconds()
+        vue.clockTime = vue.hours + ' ' + vue.minutes + ' ' + vue.seconds
       /*  axios.post('https://', {
           user: vue.user,
-          time: vue.time,
-          location: vue.location,
+          time: vue.clockTime,
+          location: 'latitude: ' + vue.latitude + 'longitude: ' + vue.longitude,
           clockType: vue.clockType
         })
           .then(response => {
@@ -69,16 +76,46 @@
         this.locationError = true
       },
       clockIn () {
-        this.clockType = 'in'
+        if (this.lastClockType !== 'in') {
+          this.clockType = 'in'
+          this.clock()
+        }
+        else {
+          alert('You are already clocked in!')
+        }
       },
       clockOut () {
-        this.clockType = 'out'
+        if (this.lastClockType !== 'out') {
+          this.clockType = 'out'
+          this.clock()
+        }
+        else {
+          alert('You are not clocked in!')
+        }
       },
       lunchOut () {
-        this.clockType = 'lunch out'
+        if (this.lastClockType === 'in') {
+          this.clockType = 'lunch out'
+          this.clock()
+        }
+        else if (this.lastClockType === 'lunch out') {
+          alert('You are already out to lunch!')
+        }
+        else if (this.lastClockType === 'lunch in') {
+          alert('You already had lunch!')
+        }
+        else {
+          alert('You are not clocked in!')
+        }
       },
       lunchIn () {
-        this.clockType = 'lunch in'
+        if (this.lastClockType !== 'lunch in') {
+          this.clockType = 'lunch in'
+          this.clock()
+        }
+        else {
+          alert('You are already back from lunch!')
+        }
       }
     }
   }
