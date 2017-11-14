@@ -10,7 +10,9 @@
         <div v-on:click="registerNav" v-bind:class="login">Register</div>
         <div v-on:click="accountNav" v-bind:class="logged">Account</div>
         <div v-on:click="timeClockNav" v-bind:class="logged">Time Clock</div>
+        <div v-on:click="jobsNav" v-bind:class="logged">Jobs</div>
         <div v-on:click="logOut" v-bind:class="logged">Log Out</div>
+        <div v-on:click="scheduleNav" v-bind:class="logged">Schedule</div>
       </center>
     </div>
   </div>
@@ -86,31 +88,49 @@
         }
         this.isToggled = false
         x = false
+        clearInterval()
       },
       loginNav: function () {
         this.$router.push('/login')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       registerNav: function () {
         this.$router.push('/register')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       accountNav: function () {
         this.$router.push('/account')
         this.isToggled = false
         x = false
+        clearInterval()
       },
       timeClockNav: function () {
         this.$router.push('/timeclock')
         this.isToggled = false
         x = false
+        clearInterval()
+      },
+      jobsNav: function () {
+        this.$router.push('/jobs')
+        this.isToggled = false
+        x = false
+        clearInterval()
+      },
+      scheduleNav: function () {
+        this.$router.push('/schedule')
+        this.isToggled = false
+        x = false
+        clearInterval()
       },
       logOut: function () {
         this.isToggled = false
         x = false
         this.$emit('logOut')
+        clearInterval()
       }
     }
   }
@@ -123,22 +143,24 @@
   @secondaryColor: #1a222e;
   @paymentColor: #519d10;
   @medicalColor: #ee1f34;
-  @darkTR: #1a222e;
-  @lightTR: #3f62ad;
+  @dark: #161817;
+  @light: #6b6b6b;
+  @darkTR: #000;
+  @lightTR: #444;
   @textColor: #9fb0d6;
   @baseFontSize: 1em;
-  @boldText: "Candara";
+  @boldText: "tahoma";
   @sideText: "AdventPro";
   @bodyText: "LiberationSans";
 
   .nav {
     height: 80px;
-    background: #0c2069;
-    background-image: -webkit-linear-gradient(top, @lightTR, @darkTR);
-    background-image: -moz-linear-gradient(top, @lightTR, @darkTR);
-    background-image: -ms-linear-gradient(top, @lightTR, @darkTR);
-    background-image: -o-linear-gradient(top, @lightTR, @darkTR);
-    background-image: linear-gradient(to bottom, @lightTR, @darkTR);
+    background: #161817;
+    background-image: -webkit-linear-gradient(top, @light, @dark);
+    background-image: -moz-linear-gradient(top, @light, @dark);
+    background-image: -ms-linear-gradient(top, @light, @dark);
+    background-image: -o-linear-gradient(top, @light, @dark);
+    background-image: linear-gradient(to bottom, @light, @dark);
     display: grid;
     grid-template-columns: 10px repeat(5, 1fr) 10px;
     z-index: 2;
@@ -181,16 +203,16 @@
   .navtile {
     width: 90%;
     height: 40px;
-    line-height: 40px;
+    line-height: 25px;
     border-radius: 10px;
     margin: 10px 0;
     padding: 4px;
     background: #0c2069;
-      background-image: -webkit-linear-gradient(top, @darkTR, @lightTR);
-      background-image: -moz-linear-gradient(top, @darkTR, @lightTR);
-      background-image: -ms-linear-gradient(top, @darkTR, @lightTR);
-      background-image: -o-linear-gradient(top, @darkTR, @lightTR);
-      background-image: linear-gradient(to bottom, @darkTR, @lightTR);
+      background-image: -webkit-linear-gradient(top, @dark, @light);
+      background-image: -moz-linear-gradient(top, @dark, @light);
+      background-image: -ms-linear-gradient(top, @dark, @light);
+      background-image: -o-linear-gradient(top, @dark, @light);
+      background-image: linear-gradient(to bottom, @dark, @light);
     text-align: center;
     font-family: @boldText;
     font-size: @baseFontSize + 1em;

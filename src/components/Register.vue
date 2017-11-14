@@ -8,6 +8,7 @@
   export default {
     name: 'register',
     created () {
+      clearInterval()
       if (this.logged === true) {
         this.$router.push('/account')
       }

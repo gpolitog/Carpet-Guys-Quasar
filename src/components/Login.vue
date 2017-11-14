@@ -22,6 +22,7 @@
   export default {
     name: 'login',
     created () {
+      clearInterval()
       if (this.logged === true) {
         this.$router.push('/account')
       }
@@ -78,7 +79,91 @@
 </script>
 
 <style scoped lang="less">
-  .main {
+@backgroundColor: ;
+@secondaryColor: ;
+@paymentColor: ;
+@medicalColor: ;
+@darkTR: ;
+@lightTR: ;
+@textColor: ;
+@baseFontSize: ;
+@boldText: "";
+@sideText: "";
+@bodyText: "";
+@font-face {
+  font-family: "";
+  src: url("");
+}
+@font-face {
+  font-family: "";
+  src: url("");
+}
+@font-face {
+  font-family: "";
+  src: url("");
+}
+.main {
+   background-size: cover;
+   width: 100%;
+   height: 100%;
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   padding-left: 0px;
+   padding-right: 0px;
+   display: grid;
+   grid-template-columns: 100%;
+   grid-template-rows: 20px 500px 10px 20px;
   }
+.loginBox {
+  grid-column: 1;
+  grid-row: 2;
+  text-align: center;
+  box-shadow: 2px 6px #d1d1d1;
+  border-radius: 24px;
+  background: ;
+  background-image: -webkit-linear-gradient;
+  background-image: -moz-linear-gradient;
+  background-image: -ms-linear-gradient;
+  background-image: -o-linear-gradient;
+  background-image: linear-gradient;
+}
+h1 {
+  font-family: ;
+  color: ;
+  text-shadow: 2px 1px 2px #515151;
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+  font-size: ;
+  padding-left: 12px;
+}
+input {
+  background-color: transparent;
+  border: none;
+  border-left: ;
+  border-bottom: ;
+  color: ;
+  padding-top: 12px;
+  padding-left: 14px;
+}
+.loginMain {
 
+}
+.topLogin {
+ padding-bottom: 10px;
+ border-left: ;
+}
+.bottomLogin {
+  border-left: ;
+}
+.wrongInput {
+
+}
+.signIn {
+
+}
+.links h6 {
+  text-align: center;
+}
 </style>
