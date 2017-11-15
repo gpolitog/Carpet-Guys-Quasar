@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div v-bind:class="accountEditLogic">
-      <h1>PLEASE ENTER ACCOUNT INFO</h1>
+      <h1 class="entertitle">PLEASE ENTER ACCOUNT INFO</h1>
       <input type="text" class="userNameEdit" v-model="user.email" placeholder="Email Address" required></input>
       <select class="salutationEdit" v-model="user.salutation">
         <option value="mr">Mr.</option>
@@ -28,8 +28,8 @@
       <p class="cardnum">{{this.user.cardNumber}}</p>
       <p class="carddate">{{this.user.cardDate}}</p>
       <p class="ccv">{{this.user.ccv}}</p>
-    </div>
       <button class="editButton" v-on:click="edit">Edit Info</button>
+    </div>
     </div>
   </div>
 </template>
@@ -58,22 +58,22 @@ export default {
         email: 'user@gmail.com',
         password: '',
         salutation: '',
-        firstName: 'Bob',
+        firstName: 'Robert',
         middleName: '',
         lastName: 'Carpetman',
         phoneNumber: '555-555-5555',
         addressOne: '123 abc st.',
         addressTwo: '',
         city: 'phoenix',
-        state: 'arizona',
+        state: 'AZ',
         zipCode: '',
         cardNumber: '1234567890',
         cardDate: '1/1/18',
-        cvv: '789'
+        ccv: '789'
       },
       error: '',
       tabSelected: 0,
-      edit: false
+      edit: true
     }
   },
   props: ['logged'],
@@ -112,7 +112,7 @@ export default {
         zipCode: this.user.zipCode,
         cardNumber: this.user.cardNumber,
         cardDate: this.user.cardDate,
-        cvv: this.user.cvv
+        ccv: this.user.ccv
       })
         .then(function () {
           vue.edit = false
@@ -135,13 +135,15 @@ export default {
      display: none;
 
     }
-  h1 {
-    line-height: 50px;
-    font-family: tahoma;
-    font-size: 1.4em;
-    text-align: center;
+  .entertitle {
     background-color: #f4c20d;
-    margin-top: 30px;
+    text-align: center;
+    font-family: tahoma;
+    font-size: 1.2em;
+    line-height: 30px;
+    margin-top: 10px;
+    grid-column-start: 4 ;
+    grid-column-end: 5;
     }
     .userNameEdit {
       margin: 10px;
@@ -162,28 +164,20 @@ export default {
       margin: 10px;
     }
     .confirmButton {
+      text-align: center;
       margin: 10px;
       background-color: #f4c20d;
     }
 
 /* Account info display */
-    .account {
-      display: grid;
-      grid-template-columns: repeat(4, 5em);
-      grid-template-rows: repeat(10, 70px);
-    }
-    h1 {
-      width: auto;
-      height: 40px;
-      line-height: 10px;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row: 1;
-    }
+
     .acctinfo {
+      margin-top: 10px;
+      width: 100%;
       display: grid;
-      grid-template-columns: 1;
-      grid-template-rows: repeat(10, 70px);
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(13,70px);
+
     }
     p {
       margin-bottom: 10px;
@@ -193,7 +187,13 @@ export default {
       grid-row: 4;
     }
     .acctitle {
-      grid-column-start: 1;
+      background-color: #f4c20d;
+      text-align: center;
+      font-family: tahoma;
+      font-size: 1.2em;
+      line-height: 30px;
+      margin-top: 10px;
+      grid-column-start: 4 ;
       grid-column-end: 5;
     }
     .firstname {
@@ -204,7 +204,7 @@ export default {
     .lastname {
       grid-row: 1;
       grid-column-start: 2;
-      grid-column-end: 5;
+      grid-column-end: 3;
     }
     .phonenum {
       grid-row: 2;
@@ -213,13 +213,40 @@ export default {
     }
     .addressone {
       grid-row: 2;
-      grid-column-start: 3;
+      grid-column-start: 2;
       grid-column-end: 5;
     }
     .city {
-      margin-top: 40px;
       grid-row: 2;
       grid-column-start: 3;
       grid-column-end: 5;
+    }
+    .state {
+      margin-left: 70px;
+      grid-row: 2;
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
+    .cardnum {
+      grid-row: 3;
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+    .ccv {
+      grid-row: 3;
+      grid-column-start: 2;
+      grid-column-end: 3;
+    }
+    .carddate {
+      grid-row: 3;
+      grid-column-start: 3;
+      grid-column-end: 4;
+    }
+    .editButton {
+      background-color: #f4c20d;
+      margin: 10px;
+      grid-row: 5;
+      grid-column-start: 1;
+      grid-column-end: 4;
     }
 </style>
