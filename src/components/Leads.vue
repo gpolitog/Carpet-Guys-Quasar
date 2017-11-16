@@ -4,19 +4,32 @@
     <button type="submit" class="searchButton">
     <i class="fa fa-search">Search</i>
     </button>
-    <input type="text" class="firstname" v-model="lead.firstName" placeholder="First Name" required</input>
-    <input type="text" class="lastname" v-model="lead.lastName" placeholder="Last Name" required</input>
-    <input type="text" class="customernum" v-model="lead.customernum" placeholder="Customer Number" required</input>
-    <input type="text" class="phonenum" v-model="lead.phoneNumber" placeholder="Phone" required</input>
-    <input type="text" class="secondname" v-model="lead.secondname" placeholder="Second Name" required</input>
-    <input type="text" class="secondphone" v-model="lead.secondphone" placeholder="Second Phone" required</input>
-    <input type="text" class="addressOne" v-model="lead.addressOne" placeholder="Address" required</input>
-    <input type="text" class="addressTwo" v-model="lead.addressTwo" placeholder="Second Address" required</input>
-    <input type="text" class="city" v-model="lead.city" placeholder="City" required</input>
-    <input type="text" class="state" v-model="lead.state" placeholder="State" required</input>
-    <input type="text" class="zip" v-model="lead.zip" placeholder="zip" required</input>
-    <input type="text" class="email" v-model="lead.email" placeholder="E Mail" required</input>
-    <input type="text" class="notes" v-model="lead.notes" placeholder="Notes" required</input>
+    <h1>Lead Information</h1>
+    <p class="customernum">{{this.user.customernum}}</p>
+    <p class="email">{{this.user.email}}</p>
+    <p class="firstname">{{this.user.firstName}}</p>
+    <p class="lastname">{{this.user.lastName}}</p>
+    <p class="secondname">{{this.user.secondname}}</p>
+    <p class="phonenum">{{this.user.phoneNumber}}</p>
+    <p class="secondphone">{{this.user.secondphone}}</p>
+    <p class="addressone">{{this.user.addressOne}}</p>
+    <p class="addressTwo">{{this.user.addressTwo}}</p>
+    <p class="city">{{this.user.city}}</p>
+    <p class="state">{{this.user.state}}</p>
+    <p class="zipCode">{{this.user.zipCode}}</p>
+    <p class="notes">{{this.user.notes}}</p>
+  <div v-bind:class="leadEditLogic">
+    <div class="leadinfo">
+      <h1 class="entertitle">Edit Lead Information</h1>
+      <input type="text" class="userNameEdit" v-model="user.email" placeholder="Email Address" required></input>
+      <input type="text" class="firstNameEdit" v-model="user.firstName" placeholder="First Name" required></input>
+      <input type="text" class="middleNameEdit" v-model="user.middleName" placeholder="Mi" required></input>
+      <input type="text" class="lastNameEdit" v-model="user.lastName" placeholder="Last Name" required></input><br/>
+      <input type="tel" class="phoneEdit" v-model="user.phoneNumber" placeholder="Phone Number" required></input><br/>
+      <input type="password" class="password" v-model="user.password" placeholder="Password" required></input>
+      <button class="confirmButton" v-on:click="submit">Confirm Changes</button>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -68,6 +81,12 @@ export default {
         main: !this.edit,
         hidden: this.edit
       }
+    },
+    leadEditLogic: function () {
+      return {
+        main: this.edit,
+        hidden: !this.edit
+      }
     }
   },
   methods: {
@@ -107,40 +126,147 @@ export default {
     grid-template-columns: repeat(7,1fr);
     grid-template-rows: repeat(13,50px);
     overflow: hidden;
+    text-align: justify;
   }
+
+
   .searchButton {
-    grid-column-start: 6;
-    grid-column-end: 7;
+    margin-right: 20px;
+    background-color: #fbdd21;
+    grid-column-start: 5;
+    grid-column-end: 8;
     grid-row: 2;
+    border: solid 2px #fbdd21;
+    border-radius: 5px;
     }
   .search {
     width: 100%;
-    position: relative
+    position: relative;
   }
 
   .searchTerm {
+    margin-left: 20px;
+    text-align: center;
     width: 100%;
-    border: 3px solid #00B4CC;
+    border: 3px solid #fbdd21;
     border-radius: 5px;
     outline: none;
     color: #9DBFAF;
-    grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 5;
     grid-row: 2;
-
   }
-
-  .searchTerm:focus{
-    color: #00B4CC;
+  h1 {
+    margin-top: 65px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row: 2;
+    font-size: 1.4em;
+    font-family: tahoma;
+    color: #c9272b;
   }
-
 /*LEAD INFORMATION VIEW*/
 
-.customernum {
-  grid-column-start: 2;
-  grid-column-end: 4;
-  grid-row: 4;
-}
+  .customernum {
+    margin-left: 20px;
+    border: 2px solid #fbdd21;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 4;
+  }
+  .firstname {
+    margin-left: 20px;
+    border: 2px solid #fbdd21;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 5;
+  }
+  .lastname {
+    border: 2px solid #fbdd21;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row: 5;
+  }
+  .phonenum {
+    margin-left: 10px;
+    border: 2px solid #fbdd21;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row: 5;
+  }
+  .addressone {
+    margin-left: 20px;
+    border: 2px solid #fbdd21;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 7;
+  }
+  .addressTwo {
+    margin-left: 20px;
+    border: 2px solid #fbdd21;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 8;
+  }
+  .city {
+    border: 2px solid #fbdd21;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row: 7;
+  }
+  .state {
+    border: 2px solid #fbdd21;
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row: 7;
+  }
+ .secondname {
+   margin-left: 20px;
+   border: 2px solid #fbdd21;
+   grid-column-start: 1;
+   grid-column-end: 4;
+   grid-row: 6;
+ }
+ .secondphone {
+   margin-left: 10px;
+   border: 2px solid #fbdd21;
+   grid-column-start: 4;
+   grid-column-end: 7;
+   grid-row: 6;
+ }
+
+  .email {
+    margin-left: 20px;
+    border: 2px solid #fbdd21;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row: 9;
+  }
+  .zipCode {
+    border: 2px solid #fbdd21;
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row: 7;
+  }
+  .notes {
+    margin-left: 20px;
+    border: 2px solid #fbdd21;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 10;
+    grid-row-end: 12;
+  }
 
 
+  /* LEAD EDIT */
+
+
+  .main {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(13,50px);
+    overflow: hidden;
+    text-align: justify;
+  }
 </style>
