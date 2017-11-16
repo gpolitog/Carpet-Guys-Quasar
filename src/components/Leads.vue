@@ -65,26 +65,9 @@ export default {
   },
   props: ['logged'],
   computed: {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    leadEditLogic: function () {
-=======
-    accountEditLogic: function () {
->>>>>>> parent of 91fa0b1... Tidied Leads
-      return {
-        accountEdit: this.edit,
-        hidden: !this.edit
-      }
-    },
-<<<<<<< HEAD
-=======
->>>>>>> 91fa0b167e2a6b1815cd3101f764a603aeeaaccd
     leadLogic: function () {
-=======
-    accountLogic: function () {
->>>>>>> parent of 91fa0b1... Tidied Leads
       return {
-        account: !this.edit,
+        search: !this.edit,
         hidden: this.edit
       }
     }
