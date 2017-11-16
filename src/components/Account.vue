@@ -78,13 +78,13 @@ export default {
   },
   props: ['logged'],
   computed: {
-    accountEditLogic: function () {
+    leadLogic: function () {
       return {
         accountEdit: this.edit,
         hidden: !this.edit
       }
     },
-    accountLogic: function () {
+    leadEditLogic: function () {
       return {
         account: !this.edit,
         hidden: this.edit
