@@ -1,24 +1,22 @@
 <template>
-  <div class="main">
-    <div v-bind:class="leadLogic">
-      <input type="text" class="searchTerm" placeholder="Customer Search"></input>
-      <button type="submit" class="searchButton">
-      <i class="fa fa-search">Search</i>
-      </button>
-      <input type="text" class="firstname" v-model="lead.firstName" placeholder="First Name" required</input>
-      <input type="text" class="lastname" v-model="lead.lastName" placeholder="Last Name" required</input>
-      <input type="text" class="customernum" v-model="lead.customernum" placeholder="Customer Number" required</input>
-      <input type="text" class="phonenum" v-model="lead.phoneNumber" placeholder="Phone" required</input>
-      <input type="text" class="secondname" v-model="lead.secondname" placeholder="Second Name" required</input>
-      <input type="text" class="secondphone" v-model="lead.secondphone" placeholder="Second Phone" required</input>
-      <input type="text" class="addressOne" v-model="lead.addressOne" placeholder="Address" required</input>
-      <input type="text" class="addressTwo" v-model="lead.addressTwo" placeholder="Second Address" required</input>
-      <input type="text" class="city" v-model="lead.city" placeholder="City" required</input>
-      <input type="text" class="state" v-model="lead.state" placeholder="State" required</input>
-      <input type="text" class="zip" v-model="lead.zip" placeholder="zip" required</input>
-      <input type="text" class="email" v-model="lead.email" placeholder="E Mail" required</input>
-      <input type="text" class="notes" v-model="lead.notes" placeholder="Notes" required</input>
-    </div>
+  <div v-bind:class="leadLogic">
+    <input type="text" class="searchTerm" placeholder="Customer Search"></input>
+    <button type="submit" class="searchButton">
+    <i class="fa fa-search">Search</i>
+    </button>
+    <input type="text" class="firstname" v-model="lead.firstName" placeholder="First Name" required</input>
+    <input type="text" class="lastname" v-model="lead.lastName" placeholder="Last Name" required</input>
+    <input type="text" class="customernum" v-model="lead.customernum" placeholder="Customer Number" required</input>
+    <input type="text" class="phonenum" v-model="lead.phoneNumber" placeholder="Phone" required</input>
+    <input type="text" class="secondname" v-model="lead.secondname" placeholder="Second Name" required</input>
+    <input type="text" class="secondphone" v-model="lead.secondphone" placeholder="Second Phone" required</input>
+    <input type="text" class="addressOne" v-model="lead.addressOne" placeholder="Address" required</input>
+    <input type="text" class="addressTwo" v-model="lead.addressTwo" placeholder="Second Address" required</input>
+    <input type="text" class="city" v-model="lead.city" placeholder="City" required</input>
+    <input type="text" class="state" v-model="lead.state" placeholder="State" required</input>
+    <input type="text" class="zip" v-model="lead.zip" placeholder="zip" required</input>
+    <input type="text" class="email" v-model="lead.email" placeholder="E Mail" required</input>
+    <input type="text" class="notes" v-model="lead.notes" placeholder="Notes" required</input>
   </div>
 </template>
 
@@ -67,7 +65,7 @@ export default {
   computed: {
     leadLogic: function () {
       return {
-        search: !this.edit,
+        main: !this.edit,
         hidden: this.edit
       }
     }
