@@ -54,6 +54,15 @@ export default {
   },
   props: ['logged'],
   computed: {
+<<<<<<< HEAD
+    leadEditLogic: function () {
+      return {
+        accountEdit: this.edit,
+        hidden: !this.edit
+      }
+    },
+=======
+>>>>>>> 91fa0b167e2a6b1815cd3101f764a603aeeaaccd
     leadLogic: function () {
       return {
         search: this.edit === false,
@@ -77,7 +86,6 @@ export default {
     grid-template-rows: repeat(13,50px);
     overflow: hidden;
   }
-
   .searchButton {
     grid-column-start: 6;
     grid-column-end: 7;
