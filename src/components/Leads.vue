@@ -23,21 +23,10 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   created () {
-    var vue = this
     if (this.logged === false) {
       this.$router.push('/login')
-    }
-    else {
-      axios.get('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }})
-        .then(function (response) {
-          vue.user = response.data
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
     }
   },
   data: function () {
@@ -65,44 +54,16 @@ export default {
   },
   props: ['logged'],
   computed: {
-    accountEditLogic: function () {
+    leadLogic: function () {
       return {
-        accountEdit: this.edit,
-        hidden: !this.edit
-      }
-    },
-    accountLogic: function () {
-      return {
-        account: !this.edit,
-        hidden: this.edit
+        search: this.edit === false,
+        hidden: this.edit === true
       }
     }
   },
   methods: {
     toggleEdit () {
       this.edit = true
-    },
-    submit () {
-      var vue = this
-      axios.put('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }}, {
-        email: this.user.email.toLowerCase(),
-        customernum: this.user.customernum,
-        firstName: this.user.firstName.toLowerCase(),
-        lastName: this.user.lastName.toLowerCase(),
-        secondname: this.user.secondname,
-        phoneNumber: this.user.phoneNumber,
-        secondphone: this.user.secondphone,
-        addressOne: this.user.addressOne,
-        addressTwo: this.user.addressTwo,
-        city: this.user.city.toLowerCase(),
-        state: this.user.state,
-        zipCode: this.user.zipCode,
-        notes: this.user.notes
-
-      })
-        .then(function () {
-          vue.edit = false
-        })
     }
   }
 }
