@@ -63,8 +63,8 @@ export default {
       wednesdays: [],
       thursdays: [],
       fridays: [],
-      saturday: [],
-      sunday: []
+      saturdays: [],
+      sundays: []
     }
   },
   methods: {
