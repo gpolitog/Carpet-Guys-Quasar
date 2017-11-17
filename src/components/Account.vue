@@ -28,7 +28,7 @@
       <p class="cardnum">{{this.user.cardNumber}}</p>
       <p class="carddate">{{this.user.cardDate}}</p>
       <p class="ccv">{{this.user.ccv}}</p>
-      <button class="editButton" v-on:click="toggleEdit">Edit Info</button>
+      <button class="editButton" v-on:click="accountEdit">Edit Info</button>
     </div>
     </div>
   </div>
@@ -62,7 +62,7 @@ export default {
       },
       error: '',
       tabSelected: 0,
-      edit: true
+      edit: false
     }
   },
   props: ['logged'],
