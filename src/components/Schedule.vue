@@ -4,8 +4,8 @@
       <div class="monthName">{{ this.month.month }}</div>
       <div class="prev" v-on:click="previous">&#10094;</div>
       <div class="next" v-on:click="next">&#10095;</div>
+      <div class="year">{{ this.year }}</div>
     </div>
-    <div class="year">{{ this.year }}</div>
     <div class="weekdays">
       <div class="monday">Mo</div>
       <div class="tuesday">Tu</div>
@@ -15,19 +15,17 @@
       <div class="saturday">Sa</div>
       <div class="sunday">Su</div>
     </div>
-    <div class="days">
-      <ul>
-        <li class="monday" v-for="monday in mondays">{{monday.day}}</li>
-        <li class="tuesday" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
-        <li class="wednesday" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
-        <li class="thursday" v-for="thursday in thursdays">{{thursday.day}}</li>
-        <li class="friday" v-for="friday in fridays">{{friday.day}}</li>
-        <li class="saturday" v-for="saturday in saturdays">{{saturday.day}}</li>
-        <li class="sunday" v-for="sunday in sundays">{{sunday.day}}</li>
-      </ul>
-    </div>
-      <div>{{ this.day }}</div>
-    </div>
+    <ul class="days">
+      <li class="mondayCol" v-for="monday in mondays">{{monday.day}}</li>
+      <li class="tuesdayCol" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
+      <li class="wednesdayCol" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
+      <li class="thursdayCol" v-for="thursday in thursdays">{{thursday.day}}</li>
+      <li class="fridayCol" v-for="friday in fridays">{{friday.day}}</li>
+      <li class="saturdayCol" v-for="saturday in saturdays">{{saturday.day}}</li>
+      <li class="sundayCol" v-for="sunday in sundays">{{sunday.day}}</li>
+    </ul>
+    <div>{{ this.day }}</div>
+  </div>
 </template>
 
 <script>
@@ -38,7 +36,7 @@ export default {
     vue.year = time.getFullYear()
     vue.monthNum = time.getMonth()
     vue.monthCompute()
-  // month -> {}# of days
+    let dayCount = months.days
   },
   data: function () {
     return { // number of days
@@ -58,13 +56,23 @@ export default {
       month: '',
       monthNum: 0,
       day: '',
-      mondays: [],
+      mondays: [
+        {monday: 1}
+        {monday: }
+        {monday: }
+        {monday: }
+        {monday: }
+        {monday: }
+        {monday: }
+        {monday: }
+        {monday: }
+      ],
       tuesdays: [],
       wednesdays: [],
       thursdays: [],
       fridays: [],
-      saturdays: [],
-      sundays: []
+      saturday: [],
+      sunday: []
     }
   },
   methods: {
@@ -136,8 +144,14 @@ export default {
 .main {
   font-family: Tahoma;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 100px 50px 50px 50px 50px 200px;
+  grid-template-columns: 1fr 1fr 1fr 4fr 1fr 1fr 1fr;
+  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+}
+.year {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
 }
 /* Month header */
 .month {
@@ -157,6 +171,8 @@ export default {
 .monthName {
   grid-column-start:2;
   grid-column-end:2;
+  grid-row-start:1;
+  grid-row-end:1;
 }
 /* Month list */
 .month ul {
@@ -184,13 +200,6 @@ export default {
     grid-column-end: 3;
     padding-top: 10px;
 }
-
-.year {
-  grid-column-start: 4;
-  grid-column-end: 4;
-  grid-row-start:2;
-  grid-column-end:2;
-}
 /* Weekdays (Mon-Sun) */
 .weekdays {
     margin: 0;
@@ -198,8 +207,8 @@ export default {
     background-color:#ddd;
     grid-column-start: 1;
     grid-column-end: 8;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -215,52 +224,83 @@ export default {
     padding: 10px 0;
     background: #eee;
     margin: 0;
+    width: 100%;
+    height: 100%;
     grid-column-start: 1;
     grid-column-end: 8;
     grid-row-start: 5;
-    grid-row-end: 7;
+    grid-row-end: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-.monday{
+.monday {
   grid-column-start: 1;
-  grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
 .tuesday {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
 .wednesday {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
 .thursday {
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
 .friday {
   grid-column-start: 5;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
 .saturday {
   grid-column-start: 6;
   grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
 .sunday {
   grid-column-start: 7;
   grid-column-end: 7;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
+}
+.mondayCol {
+  grid-column: 1;
+}
+.tuesdayCol {
+  grid-column: 2;
+}
+.wednesdayCol {
+  grid-column: 3;
+}
+.thursdayCol {
+  grid-column: 4;
+}
+.fridayCol {
+  grid-column: 5;
+}
+.saturdayCol {
+  grid-column: 6
+}
+.sundayCol {
+  grid-column: 7;
 }
 .days li {
     list-style-type: none;
