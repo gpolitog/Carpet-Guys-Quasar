@@ -11,6 +11,7 @@
         <div v-on:click="accountNav" v-bind:class="logged">Account</div>
         <div v-on:click="timeClockNav" v-bind:class="logged">Time Clock</div>
         <div v-on:click="jobsNav" v-bind:class="logged">Jobs</div>
+        <div v-on:click="leadsNav" v-bind:class="logged">Leads</div>
         <div v-on:click="logOut" v-bind:class="logged">Log Out</div>
         <div v-on:click="scheduleNav" v-bind:class="logged">Schedule</div>
       </center>
@@ -119,6 +120,11 @@
         this.isToggled = false
         x = false
         clearInterval()
+      },
+      leadsNav: function () {
+        this.$router.push('/leads')
+        this.isToggled = false
+        x = false
       },
       scheduleNav: function () {
         this.$router.push('/schedule')
