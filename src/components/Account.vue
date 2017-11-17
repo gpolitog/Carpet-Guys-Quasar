@@ -28,28 +28,17 @@
       <p class="cardnum">{{this.user.cardNumber}}</p>
       <p class="carddate">{{this.user.cardDate}}</p>
       <p class="ccv">{{this.user.ccv}}</p>
-      <button class="editButton" v-on:click="edit">Edit Info</button>
+      <button class="editButton" v-on:click="toggleEdit">Edit Info</button>
     </div>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   created () {
-    var vue = this
     if (this.logged === false) {
       this.$router.push('/login')
-    }
-    else {
-      axios.get('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }})
-        .then(function (response) {
-          vue.user = response.data
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
     }
   },
   data: function () {
@@ -73,18 +62,18 @@ export default {
       },
       error: '',
       tabSelected: 0,
-      edit: true
+      edit: false
     }
   },
   props: ['logged'],
   computed: {
-    accountLogic: function () {
+    accountEditLogic: function () {
       return {
         accountEdit: this.edit,
         hidden: !this.edit
       }
     },
-    accountEditLogic: function () {
+    accountLogic: function () {
       return {
         account: !this.edit,
         hidden: this.edit
@@ -96,27 +85,7 @@ export default {
       this.edit = true
     },
     submit () {
-      var vue = this
-      axios.put('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }}, {
-        email: this.user.email.toLowerCase(),
-        password: this.user.password,
-        salutation: this.user.salutation,
-        firstName: this.user.firstName.toLowerCase(),
-        middleName: this.user.middleName.toLowerCase(),
-        lastName: this.user.lastName.toLowerCase(),
-        phoneNumber: this.user.phoneNumber,
-        addressOne: this.user.addressOne,
-        addressTwo: this.user.addressTwo,
-        city: this.user.city.toLowerCase(),
-        state: this.user.state,
-        zipCode: this.user.zipCode,
-        cardNumber: this.user.cardNumber,
-        cardDate: this.user.cardDate,
-        ccv: this.user.ccv
-      })
-        .then(function () {
-          vue.edit = false
-        })
+      this.edit = false
     }
   }
 }
@@ -131,10 +100,11 @@ export default {
     grid-template-rows: repeat(13,70px);
     overflow: hidden;
     }
+
   hidden {
      display: none;
-
     }
+
   .entertitle {
     background-color: #f4c20d;
     text-align: center;
@@ -145,24 +115,31 @@ export default {
     grid-column-start: 4 ;
     grid-column-end: 5;
     }
+
     .userNameEdit {
       margin: 10px;
     }
+
     .firstNameEdit {
       margin: 10px;
     }
+
     .middleNameEdit {
       margin: 10px;
     }
+
     .lastNameEdit {
       margin: 10px;
     }
+
     .phoneEdit {
       margin: 10px;
     }
+
     .password {
       margin: 10px;
     }
+
     .confirmButton {
       text-align: center;
       margin: 10px;
@@ -177,15 +154,17 @@ export default {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(13,70px);
-
     }
+
     p {
       margin-bottom: 10px;
       text-align: justify;
     }
+
     .email {
       grid-row: 4;
     }
+
     .acctitle {
       background-color: #f4c20d;
       text-align: center;
@@ -196,52 +175,62 @@ export default {
       grid-column-start: 4 ;
       grid-column-end: 5;
     }
+
     .firstname {
       grid-row: 1;
       grid-column-start: 1;
       grid-column-end: 3;
     }
+
     .lastname {
       grid-row: 1;
       grid-column-start: 2;
       grid-column-end: 3;
     }
+
     .phonenum {
       grid-row: 2;
       grid-column-start: 1;
       grid-column-end: 3;
     }
+
     .addressone {
       grid-row: 2;
       grid-column-start: 2;
       grid-column-end: 5;
     }
+
     .city {
       grid-row: 2;
       grid-column-start: 3;
       grid-column-end: 5;
     }
+
     .state {
       margin-left: 70px;
       grid-row: 2;
       grid-column-start: 3;
       grid-column-end: 5;
     }
+
     .cardnum {
       grid-row: 3;
       grid-column-start: 1;
       grid-column-end: 2;
     }
+
     .ccv {
       grid-row: 3;
       grid-column-start: 2;
       grid-column-end: 3;
     }
+
     .carddate {
       grid-row: 3;
       grid-column-start: 3;
       grid-column-end: 4;
     }
+
     .editButton {
       background-color: #f4c20d;
       margin: 10px;
@@ -249,4 +238,5 @@ export default {
       grid-column-start: 1;
       grid-column-end: 4;
     }
+
 </style>
