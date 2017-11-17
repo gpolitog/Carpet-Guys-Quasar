@@ -106,7 +106,7 @@ export default {
     }
 
   .entertitle {
-    background-color: #f4c20d;
+    background-color: #fbdd21;
     text-align: center;
     font-family: tahoma;
     font-size: 1.2em;
@@ -141,9 +141,11 @@ export default {
     }
 
     .confirmButton {
+      border: solid 2px #fbdd21;
+      border-radius: 5px;
       text-align: center;
       margin: 10px;
-      background-color: #f4c20d;
+      background-color: #fbdd21;
     }
 
 /* Account info display */
@@ -166,7 +168,7 @@ export default {
     }
 
     .acctitle {
-      background-color: #f4c20d;
+      background-color: #fbdd21;
       text-align: center;
       font-family: tahoma;
       font-size: 1.2em;
@@ -232,7 +234,9 @@ export default {
     }
 
     .editButton {
-      background-color: #f4c20d;
+      border: solid 2px #fbdd21;
+      background-color: #fbdd21;
+      border-radius: 5px;
       margin: 10px;
       grid-row: 5;
       grid-column-start: 1;

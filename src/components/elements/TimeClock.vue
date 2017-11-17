@@ -136,7 +136,7 @@
 </script>
 
 <style scoped lang="less">
-  @buttonColor: #f4c20d;
+  @buttonColor: #fbdd21;
   @font-face: tahoma;
   .main {
     display: grid;
