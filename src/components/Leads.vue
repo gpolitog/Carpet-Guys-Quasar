@@ -18,6 +18,7 @@
     <p class="state">{{this.user.state}}</p>
     <p class="zipCode">{{this.user.zipCode}}</p>
     <p class="notes">{{this.user.notes}}</p>
+    <button class="editButton" v-on:click="toggleEdit">Edit</button>
   <div v-bind:class="leadEditLogic">
     <div class="leadinfo">
       <h1 class="entertitle">Edit Lead Information</h1>
@@ -34,10 +35,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   created () {
+    var vue = this
     if (this.logged === false) {
       this.$router.push('/login')
+    }
+    else {
+      axios.get('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }})
+        .then(function (response) {
+          vue.user = response.data
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   },
   data: function () {
@@ -83,7 +95,26 @@ export default {
       this.edit = true
     },
     submit () {
-      this.edit = false
+      var vue = this
+      axios.put('https://72.222.165.39:7778/users/' + vue.userId, {headers: { 'Authorization': 'JWT ' + vue.token }}, {
+        email: this.user.email.toLowerCase(),
+        customernum: this.user.customernum,
+        firstName: this.user.firstName.toLowerCase(),
+        lastName: this.user.lastName.toLowerCase(),
+        secondname: this.user.secondname,
+        phoneNumber: this.user.phoneNumber,
+        secondphone: this.user.secondphone,
+        addressOne: this.user.addressOne,
+        addressTwo: this.user.addressTwo,
+        city: this.user.city.toLowerCase(),
+        state: this.user.state,
+        zipCode: this.user.zipCode,
+        notes: this.user.notes
+
+      })
+        .then(function () {
+          vue.edit = false
+        })
     }
   }
 }
@@ -101,6 +132,7 @@ export default {
 
 
   .searchButton {
+    color: white;
     margin-right: 20px;
     background-color: #fbdd21;
     grid-column-start: 5;
@@ -227,16 +259,19 @@ export default {
     grid-row-start: 10;
     grid-row-end: 12;
   }
-
+  .editButton {
+    color: white;
+    background-color: #c9272b;
+    border: solid 2px #c9272b;
+    border-radius: 5px;
+    grid-column-end: 7;
+    grid-row-start: 8;
+    grid-row: 4;
+    margin-bottom: 10px;
+    padding: 10px;
+    line-height: 5px;
+  }
 
   /* LEAD EDIT */
 
-
-  .main {
-    display: grid;
-    grid-template-columns: repeat(7,1fr);
-    grid-template-rows: repeat(13,50px);
-    overflow: hidden;
-    text-align: justify;
-  }
 </style>

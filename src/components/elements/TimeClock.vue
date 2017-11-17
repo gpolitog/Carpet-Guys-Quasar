@@ -145,12 +145,15 @@
   }
 
   .clock {
+    margin-top: 10px;
   text-align: center;
   font-family: @font-face;
   font-size: 4em;
   grid-row: 1;
   grid-column-start: 2;
   grid-column-end: 4;
+  border: solid 3px #fbdd21;
+  border-radius: 7px;
   }
 
   .clockIn {
@@ -167,6 +170,7 @@
     background-color: @buttonColor;
     grid-row: 2;
     grid-column: 2;
+    color: white;
   }
 
   .clockOut {
@@ -183,15 +187,17 @@
     background-color: @buttonColor;
     grid-row: 2;
     grid-column: 3;
+    color: white;
   }
 
   .lunchIn {
+    color: white;
     font-size: 1.1em;
     font-weight: bold;
     font-size: 1em;
     font-family: @font-face;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 20px;
     width: 100px;
     height: 80px;
@@ -203,12 +209,13 @@
   }
 
   .lunchOut {
+    color: white;
     font-size: 1.1em;
     font-weight: bold;
     font-size: 1em;
     font-family: @font-face;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 20px;
     width: 100px;
     height: 80px;
