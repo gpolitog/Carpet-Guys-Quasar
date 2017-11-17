@@ -8,6 +8,7 @@
   export default {
     name: 'home',
     created () {
+      clearInterval()
       if (this.logged === true) {
         this.$router.push('/call')
       }
