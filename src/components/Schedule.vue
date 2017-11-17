@@ -36,7 +36,6 @@ export default {
     vue.year = time.getFullYear()
     vue.monthNum = time.getMonth()
     vue.monthCompute()
-    let dayCount = months.days
   },
   data: function () {
     return { // number of days
@@ -56,17 +55,7 @@ export default {
       month: '',
       monthNum: 0,
       day: '',
-      mondays: [
-        {monday: 1}
-        {monday: }
-        {monday: }
-        {monday: }
-        {monday: }
-        {monday: }
-        {monday: }
-        {monday: }
-        {monday: }
-      ],
+      mondays: [],
       tuesdays: [],
       wednesdays: [],
       thursdays: [],

@@ -8,6 +8,7 @@ const TimeClock = () => import('./components/elements/TimeClock')
 const Jobs = () => import('./components/Jobs')
 const Leads = () => import('./components/Leads')
 const Schedule = () => import('./components/Schedule')
+const Location = () => import('./components/Location')
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,11 @@ export default new Router({
       path: '/schedule',
       name: 'Schedule',
       component: Schedule
+    },
+    {
+      path: '/location',
+      name: 'Location',
+      component: Location
     }
   ]
 })
