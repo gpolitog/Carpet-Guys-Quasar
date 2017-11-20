@@ -160,7 +160,8 @@ input {
 .signIn {
 background-color: #fbdd21;
 border: solid 2px #fbdd21;
-border-radius: 5px;
+border-bottom-right-radius: 6px;
+border-bottom-left-radius: 6px;
 font-size: 1.2em;
 }
 .links h6 {
