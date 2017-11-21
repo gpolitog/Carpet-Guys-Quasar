@@ -137,7 +137,7 @@ export default {
   font-family: Tahoma;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 100px 50px 50px 50px 50px 200px;
+  grid-template-rows: 100px 50px 50px 50px 50px 50px 50px 50px;
 }
 /* Month header */
 .month {
@@ -189,7 +189,8 @@ export default {
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start:2;
-  grid-column-end:2;
+  grid-row-end:2;
+  text-align: center;
 }
 /* Weekdays (Mon-Sun) */
 .weekdays {
@@ -217,50 +218,57 @@ export default {
     margin: 0;
     grid-column-start: 1;
     grid-column-end: 8;
-    grid-row-start: 5;
-    grid-row-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 9;
 }
 .monday{
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
+  text-align: center;
 }
 .tuesday {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
+  text-align: center;
 }
 .wednesday {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
+  text-align: center;
 }
 .thursday {
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
+  text-align: center;
 }
 .friday {
   grid-column-start: 5;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 3;
+  text-align: center;
 }
 .saturday {
   grid-column-start: 6;
   grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 3;
+  text-align: center;
 }
 .sunday {
   grid-column-start: 7;
   grid-column-end: 7;
   grid-row-start: 3;
   grid-row-end: 3;
+  text-align: center;
 }
 .days li {
     list-style-type: none;
