@@ -133,14 +133,8 @@ export default {
 .main {
   font-family: Tahoma;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 4fr 1fr 1fr 1fr;
-  grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
-}
-.year {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 3;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 100px 50px 50px 50px 50px 50px 50px 50px;
 }
 /* Month header */
 .month {
@@ -290,6 +284,7 @@ export default {
 }
 .sundayCol {
   grid-column: 7;
+  text-align: center;
 }
 .days li {
     list-style-type: none;
