@@ -207,16 +207,15 @@ export default {
     grid-row-start: 1;
     grid-row-end: 4;
     display: grid;
-    grid-template-columns: 1fr 10fr 1fr;
-    grid-template-rows: auto;
-    color: #fff;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .monthName {
+  font-size: 1.6em;
+  color: white;
   grid-column-start:2;
-  grid-column-end:2;
-  grid-row-start:1;
-  grid-row-end:1;
+  grid-column-end:5;
 }
 /* Month list */
 .month ul {
@@ -240,6 +239,7 @@ export default {
 
 /* Previous button inside month header */
 .month .prev {
+    color: white;
     grid-column-start: 1;
     grid-column-end: 1;
     padding-top: 10px;
@@ -247,9 +247,18 @@ export default {
 
 /* Next button */
 .month .next {
-    grid-column-start: 3;
-    grid-column-end: 3;
+    color: white;
+    grid-column-start: 5;
+    grid-column-end: 5;
     padding-top: 10px;
+}
+
+.year {
+  color: white;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row:2;
+  text-align: center;
 }
 /* Weekdays (Mon-Sun) */
 .weekdays {

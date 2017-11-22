@@ -182,14 +182,15 @@
   }
 
   .logo {
-    background-image: url('../../assets/carpetGuysMobile.png');
+    background-image: url('../../assets/carpetguytype.png');
     background-repeat: no-repeat;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row: 1;
-    height: auto;
+    line-height: 20px;
+    height: 180px;
     width: 270px;
-    transform: scale(.70,.70)
+    transform: scale(.80,.80)
   }
 
   .navButton {
