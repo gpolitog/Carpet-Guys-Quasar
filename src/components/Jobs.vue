@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="jobLoop" v-for="job in jobs">
-      <div v-bind:class="{ 'tile' : !job.clicked, 'hidden' : job.clicked }" v-on:click="job.clicked = true">{{job.jobNo}}</div>
+      <div v-bind:class="{ 'tile' : !job.clicked, 'hidden' : job.clicked }" v-on:click="job.clicked = true">Job Number: {{job.jobNo}}</div>
       <div v-bind:class="{ 'job' : job.clicked, 'hidden' : !job.clicked }">
         <div v-on:click="job.clicked = false">Back</div>
         <div class="showNumber">{{job.showNumber}}</div>
@@ -44,7 +44,14 @@ export default {
   width: 100%;
 }
 .tile {
-
+  width: 100%;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 1em;
+  text-align: center;
 }
 .hidden {
   display: none;
