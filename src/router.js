@@ -9,6 +9,7 @@ const Jobs = () => import('./components/Jobs')
 const Leads = () => import('./components/Leads')
 const Schedule = () => import('./components/Schedule')
 const Location = () => import('./components/Location')
+const Messaging = () => import('./components/Messaging')
 Vue.use(Router)
 
 export default new Router({
@@ -57,6 +58,11 @@ export default new Router({
       path: '/location',
       name: 'Location',
       component: Location
+    },
+    {
+      path: '/messaging',
+      name: 'Messaging',
+      component: Messaging
     }
   ]
 })

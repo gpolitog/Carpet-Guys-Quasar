@@ -1,62 +1,34 @@
 <template>
   <div class="main">
-    <div class="jobBox">
-      <div class="location"></div>
-      <div class="beforePictures"></div>
-      <form class="afterPictures" method="POST" action="getdata.php" enctype="multipart/form-data">
-        <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload">
-      </form>
-      <div class="details"></div>
+    <div class="jobLoop" v-for="job in jobs">
+      <div v-bind:class="{ 'tile' : !job.clicked, 'hidden' : job.clicked }" v-on:click="job.clicked = true">{{job.jobNo}}</div>
+      <div v-bind:class="{ 'job' : job.clicked, 'hidden' : !job.clicked }">
+        <div v-on:click="job.clicked = false">Back</div>
+        <div class="showNumber">{{job.showNumber}}</div>
+        <div class="firstName">Customer Name:{{job.firstName}}</div>
+        <div class="lastName">{{job.lastName}}</div>
+        <div class="location">Address:{{job.location}}</div>
+        <div class="phoneNumber">Phone:{{job.phoneNumber}}</div>
+        <div class="installer">Installer:{{job.installer}}</div>
+        <div class="mapContainer">MAP GOES HERE</div>
+      </div>
     </div>
-
-    <div class="jobBox">
-      <div class="location"></div>
-      <div class="beforePictures"></div>
-      <form method="POST" action="getdata.php" enctype="multipart/form-data">
-        <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload">
-      </form>
-      <div class="details"></div>
-    </div>
-
-    <div class="jobBox">
-      <div class="location"></div>
-      <div class="beforePictures"></div>
-      <form method="POST" action="getdata.php" enctype="multipart/form-data">
-        <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload">
-      </form>
-      <div class="details"></div>
-    </div>
-
-    <div class="jobBox">
-      <div class="location"></div>
-      <div class="beforePictures"></div>
-      <form method="POST" action="getdata.php" enctype="multipart/form-data">
-        <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload">
-      </form>
-      <div class="details"></div>
-    </div
-    >
-    <div class="jobBox">
-      <div class="location"></div>
-      <div class="beforePictures"></div>
-      <form method="POST" action="getdata.php" enctype="multipart/form-data">
-        <input type="file" name="myimage">
-        <input type="submit" name="submit_image" value="Upload">
-      </form>
-      <div class="details"></div>
-    </div>
-
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {}
+    return {
+      jobs: [
+        { jobNo: 1, showNumber: '1', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 2, showNumber: '2', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 3, showNumber: '3', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 4, showNumber: '4', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 5, showNumber: '5', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 6, showNumber: '6', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false }
+      ]
+    }
   },
   created () {
     clearInterval()
@@ -66,21 +38,15 @@ export default {
 
 <style>
 .main {
+  text-align: justify;
+}
+.jobLoop {
+  width: 100%;
+}
+.tile {
 
 }
-.jobBox {
-
-}
-.location {
-
-}
-.beforePictures {
-
-}
-.afterPictures {
-
-}
-.details {
-
+.hidden {
+  display: none;
 }
 </style>
