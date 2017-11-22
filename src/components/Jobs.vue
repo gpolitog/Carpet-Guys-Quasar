@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="jobLoop" v-for="job in jobs">
-      <div v-bind:class="{ 'tile' : !job.clicked, 'hidden' : job.clicked }" v-on:click="job.clicked = true">Job Number: {{job.jobNo}}</div>
+      <div v-bind:class="{ 'tile' : !job.clicked, 'hidden' : job.clicked }" v-on:click="job.clicked = true">{{job.jobNo}}</div>
       <div v-bind:class="{ 'job' : job.clicked, 'hidden' : !job.clicked }">
         <div v-on:click="job.clicked = false">Back</div>
         <div class="showNumber">{{job.showNumber}}</div>
@@ -19,7 +19,16 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      jobs: [
+        { jobNo: 1, showNumber: '1', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 2, showNumber: '2', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 3, showNumber: '3', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 4, showNumber: '4', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 5, showNumber: '5', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
+        { jobNo: 6, showNumber: '6', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false }
+      ]
+    }
   },
   created () {
     clearInterval()
@@ -29,29 +38,15 @@ export default {
 
 <style>
 .main {
-
+  text-align: justify;
 }
-.jobBox {
-
-}
-.location {
-
+.jobLoop {
+  width: 100%;
 }
 .tile {
-  width: 100%;
-  background-color: #ccc;
-  border-radius: 10px;
-  margin-top: 10px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 1em;
-  text-align: center;
-}
-
-.afterPictures {
 
 }
-.details {
-
+.hidden {
+  display: none;
 }
 </style>
