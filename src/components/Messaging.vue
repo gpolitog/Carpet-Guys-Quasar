@@ -24,8 +24,6 @@ export default {
       this.input = ''
     }
   },
-  created () {
-  },
   computed: {
     smallInputLogic: function () {
       return {
