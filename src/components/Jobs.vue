@@ -13,22 +13,54 @@
         <div class="mapContainer">MAP GOES HERE</div>
       </div>
     </div>
+
+    <div class="jobBox">
+      <div class="location"></div>
+      <div class="beforePictures"></div>
+      <form method="POST" action="getdata.php" enctype="multipart/form-data">
+        <input type="file" name="myimage">
+        <input type="submit" name="submit_image" value="Upload">
+      </form>
+      <div class="details"></div>
+    </div>
+
+    <div class="jobBox">
+      <div class="location"></div>
+      <div class="beforePictures"></div>
+      <form method="POST" action="getdata.php" enctype="multipart/form-data">
+        <input type="file" name="myimage">
+        <input type="submit" name="submit_image" value="Upload">
+      </form>
+      <div class="details"></div>
+    </div>
+
+    <div class="jobBox">
+      <div class="location"></div>
+      <div class="beforePictures"></div>
+      <form method="POST" action="getdata.php" enctype="multipart/form-data">
+        <input type="file" name="myimage">
+        <input type="submit" name="submit_image" value="Upload">
+      </form>
+      <div class="details"></div>
+    </div
+    >
+    <div class="jobBox">
+      <div class="location"></div>
+      <div class="beforePictures"></div>
+      <form method="POST" action="getdata.php" enctype="multipart/form-data">
+        <input type="file" name="myimage">
+        <input type="submit" name="submit_image" value="Upload">
+      </form>
+      <div class="details"></div>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
   data () {
-    return {
-      jobs: [
-        { jobNo: 1, showNumber: '1', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
-        { jobNo: 2, showNumber: '2', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
-        { jobNo: 3, showNumber: '3', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
-        { jobNo: 4, showNumber: '4', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
-        { jobNo: 5, showNumber: '5', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false },
-        { jobNo: 6, showNumber: '6', firstName: 'Robert', lastName: 'Carpetman', location: '123 abc st 85379 surprise az', phoneNumber: '555-555-5555', installer: 'Jim McCarpitt', clicked: false }
-      ]
-    }
+    return {}
   },
   created () {
     clearInterval()
@@ -38,10 +70,13 @@ export default {
 
 <style>
 .main {
-  text-align: justify;
+
 }
-.jobLoop {
-  width: 100%;
+.jobBox {
+
+}
+.location {
+
 }
 .tile {
   width: 100%;
@@ -53,7 +88,11 @@ export default {
   font-size: 1em;
   text-align: center;
 }
-.hidden {
-  display: none;
+
+.afterPictures {
+
+}
+.details {
+
 }
 </style>
