@@ -231,10 +231,11 @@ export default {
 }
 
 .year {
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: ;
-  grid-row-end: ;
+  color: white;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row: 2;
+  text-align: center;
 }
 
 /* Previous button inside month header */
@@ -253,13 +254,6 @@ export default {
     padding-top: 10px;
 }
 
-.year {
-  color: white;
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row:2;
-  text-align: center;
-}
 /* Weekdays (Mon-Sun) */
 .weekdays {
     margin: 0;
