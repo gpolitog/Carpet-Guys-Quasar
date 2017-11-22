@@ -42,6 +42,7 @@ export default {
     vue.year = time.getFullYear()
     vue.monthNum = time.getMonth()
     vue.monthCompute()
+    vue.dayClear()
     vue.dayPopulate()
   },
   data: function () {
