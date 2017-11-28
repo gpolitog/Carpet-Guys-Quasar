@@ -194,8 +194,9 @@
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row: 1;
-    line-height: 20px;
-    height: 180px;
+    line-height: 80px;
+    margin-top: 10px;
+    height: 80px;
     width: 270px;
     transform: scale(.80,.80)
   }
