@@ -31,6 +31,7 @@
       <div class="location">1234 w address ln</div>
       <div class="customerContact">(123)456-789</div>
     </div>
+  </div>
 </template>
 
 <script>
