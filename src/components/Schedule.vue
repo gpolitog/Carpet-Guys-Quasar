@@ -4,8 +4,8 @@
       <div class="monthName">{{ this.month.month }}</div>
       <div class="prev" v-on:click="previous">&#10094;</div>
       <div class="next" v-on:click="next">&#10095;</div>
+      <div class="year">{{ this.year }}</div>
     </div>
-    <div class="year">{{ this.year }}</div>
     <div class="weekdays">
       <div class="monday">Mo</div>
       <div class="tuesday">Tu</div>
@@ -15,19 +15,23 @@
       <div class="saturday">Sa</div>
       <div class="sunday">Su</div>
     </div>
-    <div class="days">
-      <ul>
-        <li class="monday" v-for="monday in mondays">{{monday.day}}</li>
-        <li class="tuesday" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
-        <li class="wednesday" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
-        <li class="thursday" v-for="thursday in thursdays">{{thursday.day}}</li>
-        <li class="friday" v-for="friday in fridays">{{friday.day}}</li>
-        <li class="saturday" v-for="saturday in saturdays">{{saturday.day}}</li>
-        <li class="sunday" v-for="sunday in sundays">{{sunday.day}}</li>
-      </ul>
+    <ul class="days">
+      <li v-bind:class="{'mondayCol': true, 'rowOne': monday.row === 1, 'rowTwo': monday.row === 2, 'rowThree': monday.row === 3, 'rowFour': monday.row === 4, 'rowFive': monday.row === 5, 'rowSix': monday.row === 6}" v-for="monday in mondays">{{monday.day}}</li>
+      <li v-bind:class="{'tuesdayCol': true, 'rowOne': tuesday.row === 1, 'rowTwo': tuesday.row === 2, 'rowThree': tuesday.row === 3, 'rowFour': tuesday.row === 4, 'rowFive': tuesday.row === 5, 'rowSix': tuesday.row === 6}" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
+      <li v-bind:class="{'wednesdayCol': true, 'rowOne': wednesday.row === 1, 'rowTwo': wednesday.row === 2, 'rowThree': wednesday.row === 3, 'rowFour': wednesday.row === 4, 'rowFive': wednesday.row === 5, 'rowSix': wednesday.row === 6}" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
+      <li v-bind:class="{'thursdayCol': true, 'rowOne': thursday.row === 1, 'rowTwo': thursday.row === 2, 'rowThree': thursday.row === 3, 'rowFour': thursday.row === 4, 'rowFive': thursday.row === 5, 'rowSix': thursday.row === 6}" v-for="thursday in thursdays">{{thursday.day}}</li>
+      <li v-bind:class="{'fridayCol': true, 'rowOne': friday.row === 1, 'rowTwo': friday.row === 2, 'rowThree': friday.row === 3, 'rowFour': friday.row === 4, 'rowFive': friday.row === 5, 'rowSix': friday.row === 6}" v-for="friday in fridays">{{friday.day}}</li>
+      <li v-bind:class="{'saturdayCol': true, 'rowOne': saturday.row === 1, 'rowTwo': saturday.row === 2, 'rowThree': saturday.row === 3, 'rowFour': saturday.row === 4, 'rowFive': saturday.row === 5, 'rowSix': saturday.row === 6}" v-for="saturday in saturdays">{{saturday.day}}</li>
+      <li v-bind:class="{'sundayCol': true, 'rowOne': sunday.row === 1, 'rowTwo': sunday.row === 2, 'rowThree': sunday.row === 3, 'rowFour': sunday.row === 4, 'rowFive': sunday.row === 5, 'rowSix': sunday.row === 6}" v-for="sunday in sundays">{{sunday.day}}</li>
+    </ul>
+    <div>{{ this.day }}</div>
+    <div class="dayView">
+      <div class="time">12:00</div>
+      <div class="title">Job</div>
+      <div class="location">1234 w address ln</div>
+      <div class="customerContact">(123)456-789</div>
     </div>
-      <div>{{ this.day }}</div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -38,7 +42,8 @@ export default {
     vue.year = time.getFullYear()
     vue.monthNum = time.getMonth()
     vue.monthCompute()
-  // month -> {}# of days
+    vue.dayClear()
+    vue.dayPopulate()
   },
   data: function () {
     return { // number of days
@@ -63,11 +68,60 @@ export default {
       wednesdays: [],
       thursdays: [],
       fridays: [],
-      saturdays: [],
-      sundays: []
+      saturday: [],
+      sunday: []
     }
   },
   methods: {
+    dayPopulate () {
+      let vue = this
+      console.log(vue.months[vue.monthNum].days)
+      let i = 0
+      let rowNum = 1
+      let dayString = vue.months[vue.monthNum].startingDay
+      for (i = 0; i < vue.months[vue.monthNum].days; i++) {
+        let dayNum = i + 1
+        if (dayString === 'monday') {
+          vue.mondays.push({ day: dayNum, row: rowNum })
+          dayString = 'tuesday'
+        }
+        else if (dayString === 'tuesday') {
+          vue.tuesdays.push({ day: dayNum, row: rowNum })
+          dayString = 'wednesday'
+        }
+        else if (dayString === 'wednesday') {
+          vue.wednesdays.push({ day: dayNum, row: rowNum })
+          dayString = 'thursday'
+        }
+        else if (dayString === 'thursday') {
+          vue.thursdays.push({ day: dayNum, row: rowNum })
+          dayString = 'friday'
+        }
+        else if (dayString === 'friday') {
+          vue.fridays.push({ day: dayNum, row: rowNum })
+          dayString = 'saturday'
+        }
+        else if (dayString === 'saturday') {
+          vue.saturdays.push({ day: dayNum, row: rowNum })
+          dayString = 'sunday'
+        }
+        else if (dayString === 'sunday') {
+          vue.sundays.push({ day: dayNum, row: rowNum })
+          dayString = 'monday'
+          rowNum++
+        }
+      }
+    },
+    dayClear () {
+      let vue = this
+      vue.mondays = []
+      vue.tuesdays = []
+      vue.wednesdays = []
+      vue.thursdays = []
+      vue.fridays = []
+      vue.saturdays = []
+      vue.sundays = []
+    },
     monthCompute () {
       let vue = this
       if (vue.monthNum === vue.months[0].monthNum) {
@@ -116,6 +170,8 @@ export default {
         vue.monthNum = 11
       }
       vue.monthCompute()
+      vue.dayClear()
+      vue.dayPopulate()
     },
     next () {
       let vue = this
@@ -126,6 +182,8 @@ export default {
         vue.monthNum = 0
       }
       vue.monthCompute()
+      vue.dayClear()
+      vue.dayPopulate()
     }
   }
 }
@@ -137,7 +195,7 @@ export default {
   font-family: Tahoma;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 100px 50px 50px 50px 50px 200px;
+  grid-template-rows: 100px 50px 50px 50px 50px 50px 50px 50px 50px;
 }
 /* Month header */
 .month {
@@ -173,6 +231,14 @@ export default {
     letter-spacing: 3px;
 }
 
+.year {
+  color: white;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row: 2;
+  text-align: center;
+}
+
 /* Previous button inside month header */
 .month .prev {
     color: white;
@@ -189,13 +255,6 @@ export default {
     padding-top: 10px;
 }
 
-.year {
-  color: white;
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row:2;
-  text-align: center;
-}
 /* Weekdays (Mon-Sun) */
 .weekdays {
     margin: 0;
@@ -203,8 +262,8 @@ export default {
     background-color:#ddd;
     grid-column-start: 1;
     grid-column-end: 8;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 4;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -220,63 +279,198 @@ export default {
     padding: 10px 0;
     background: #eee;
     margin: 0;
+    width: 100%;
+    height: 100%;
     grid-column-start: 1;
     grid-column-end: 8;
     grid-row-start: 5;
-    grid-row-end: 7;
+    grid-row-end: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-.monday{
+
+/*schedule day view */
+.dayView {
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 9;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30px 30px 30px;
+}
+
+.time {
+  display: none;
   grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: 5px;
+  font-size: 2.5em;
+}
+
+.title {
+  display: none;
+  grid-column-start: 4;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-size: 1.5em;
+}
+
+.location {
+  display: none;
+  grid-column-start: 3;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.customerContact {
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.monday {
+  grid-column-start: 1;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .tuesday {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .wednesday {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .thursday {
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .friday {
   grid-column-start: 5;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .saturday {
   grid-column-start: 6;
   grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .sunday {
   grid-column-start: 7;
   grid-column-end: 7;
   grid-row-start: 3;
   grid-row-end: 3;
-}
-.days li {
-    list-style-type: none;
-    display: inline;
-    width: 10%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color:#777;
+  margin-left: 15px;
 }
 
+.mondayCol {
+  grid-column: 1;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.tuesdayCol {
+  grid-column: 2;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.wednesdayCol {
+  grid-column: 3;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.thursdayCol {
+  grid-column: 4;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.fridayCol {
+  grid-column: 5;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.saturdayCol {
+  grid-column: 6;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.sundayCol {
+  grid-column: 7;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.rowOne {
+  grid-row: 1;
+}
+
+.rowTwo{
+  grid-row: 2;
+}
+
+.rowThree {
+  grid-row: 3;
+}
+
+.rowFour {
+  grid-row: 4;
+}
+
+.rowFive {
+  grid-row: 5;
+}
+
+.rowSix {
+  grid-row: 6;
+}
+
+.days li {
+    list-style-type: none;
+    text-align: center;
+    margin-bottom: 5px;
+    color:#777;
+}
 /* Highlight the "current" day */
 .days li .active {
     padding: 5px;
