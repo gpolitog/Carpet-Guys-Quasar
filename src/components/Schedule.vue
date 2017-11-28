@@ -15,18 +15,21 @@
       <div class="saturday">Sa</div>
       <div class="sunday">Su</div>
     </div>
-    <div class="days">
-      <ul>
-        <li class="monday" v-for="monday in mondays">{{monday.day}}</li>
-        <li class="tuesday" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
-        <li class="wednesday" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
-        <li class="thursday" v-for="thursday in thursdays">{{thursday.day}}</li>
-        <li class="friday" v-for="friday in fridays">{{friday.day}}</li>
-        <li class="saturday" v-for="saturday in saturdays">{{saturday.day}}</li>
-        <li class="sunday" v-for="sunday in sundays">{{sunday.day}}</li>
-      </ul>
-    </div>
-      <div>{{ this.day }}</div>
+    <ul class="days">
+      <li v-on:click='dayNum = monday.day' v-bind:class="{'mondayCol': true, 'rowOne': monday.row === 1, 'rowTwo': monday.row === 2, 'rowThree': monday.row === 3, 'rowFour': monday.row === 4, 'rowFive': monday.row === 5, 'rowSix': monday.row === 6}" v-for="monday in mondays">{{monday.day}}</li>
+      <li v-on:click='dayNum = tuesday.day' v-bind:class="{'tuesdayCol': true, 'rowOne': tuesday.row === 1, 'rowTwo': tuesday.row === 2, 'rowThree': tuesday.row === 3, 'rowFour': tuesday.row === 4, 'rowFive': tuesday.row === 5, 'rowSix': tuesday.row === 6}" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
+      <li v-on:click='dayNum = wednesday.day' v-bind:class="{'wednesdayCol': true, 'rowOne': wednesday.row === 1, 'rowTwo': wednesday.row === 2, 'rowThree': wednesday.row === 3, 'rowFour': wednesday.row === 4, 'rowFive': wednesday.row === 5, 'rowSix': wednesday.row === 6}" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
+      <li v-on:click='dayNum = thursday.day' v-bind:class="{'thursdayCol': true, 'rowOne': thursday.row === 1, 'rowTwo': thursday.row === 2, 'rowThree': thursday.row === 3, 'rowFour': thursday.row === 4, 'rowFive': thursday.row === 5, 'rowSix': thursday.row === 6}" v-for="thursday in thursdays">{{thursday.day}}</li>
+      <li v-on:click='dayNum = friday.day' v-bind:class="{'fridayCol': true, 'rowOne': friday.row === 1, 'rowTwo': friday.row === 2, 'rowThree': friday.row === 3, 'rowFour': friday.row === 4, 'rowFive': friday.row === 5, 'rowSix': friday.row === 6}" v-for="friday in fridays">{{friday.day}}</li>
+      <li v-on:click='dayNum = saturday.day' v-bind:class="{'saturdayCol': true, 'rowOne': saturday.row === 1, 'rowTwo': saturday.row === 2, 'rowThree': saturday.row === 3, 'rowFour': saturday.row === 4, 'rowFive': saturday.row === 5, 'rowSix': saturday.row === 6}" v-for="saturday in saturdays">{{saturday.day}}</li>
+      <li v-on:click='dayNum = sunday.day' v-bind:class="{'sundayCol': true, 'rowOne': sunday.row === 1, 'rowTwo': sunday.row === 2, 'rowThree': sunday.row === 3, 'rowFour': sunday.row === 4, 'rowFive': sunday.row === 5, 'rowSix': sunday.row === 6}" v-for="sunday in sundays">{{sunday.day}}</li>
+    </ul>
+    <div>{{ this.day }}</div>
+    <div class="dayView">
+      <div class="time">12:00</div>
+      <div class="title">Job</div>
+      <div class="location">1234 w address ln</div>
+      <div class="customerContact">(123)456-789</div>
     </div>
 </template>
 
@@ -57,6 +60,7 @@ export default {
         { monthNum: 11, month: 'December', days: 31, startingDay: 'saturday' }],
       month: '',
       monthNum: 0,
+      dayNum: 0,
       day: '',
       mondays: [],
       tuesdays: [],
@@ -223,7 +227,22 @@ export default {
     grid-column-start: 1;
     grid-column-end: 8;
     grid-row-start: 5;
-    grid-row-end: 7;
+    grid-row-end: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+/*schedule day view */
+.dayView {
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 30px 30px 30px;
 }
 .monday{
   grid-column-start: 1;
