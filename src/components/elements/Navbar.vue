@@ -171,6 +171,7 @@
     grid-template-columns: 10px repeat(5, 1fr) 10px;
     z-index: 2;
     box-shadow: 0px 6px 2px #d1d1d1;
+    grid-template-rows: 80px;
   }
 
   .logo {
@@ -180,7 +181,7 @@
     grid-column-end: 4;
     grid-row: 1;
     line-height: 20px;
-    height: 180px;
+    height: 120px;
     width: 270px;
     transform: scale(.80,.80)
   }
