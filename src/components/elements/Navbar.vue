@@ -195,7 +195,7 @@
     grid-column-end: 4;
     grid-row: 1;
     line-height: 20px;
-    height: 180px;
+    height: 100px;
     width: 270px;
     transform: scale(.80,.80)
   }

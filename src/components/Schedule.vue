@@ -5,6 +5,9 @@
       <div class="prev" v-on:click="previous">&#10094;</div>
       <div class="next" v-on:click="next">&#10095;</div>
       <div class="year">{{ this.year }}</div>
+      <div v-on:click:="" class="list"></div>
+      <div v-on:click:="" class="search"></div>
+      <div v-on:click:="" class="appointment"></div>
     </div>
     <div class="weekdays">
       <div class="monday">Mo</div>
@@ -16,26 +19,27 @@
       <div class="sunday">Su</div>
     </div>
     <ul class="days">
-      <li v-on:click='dayNum = monday.day' v-bind:class="{'mondayCol': true, 'rowOne': monday.row === 1, 'rowTwo': monday.row === 2, 'rowThree': monday.row === 3, 'rowFour': monday.row === 4, 'rowFive': monday.row === 5, 'rowSix': monday.row === 6}" v-for="monday in mondays">{{monday.day}}</li>
-      <li v-on:click='dayNum = tuesday.day' v-bind:class="{'tuesdayCol': true, 'rowOne': tuesday.row === 1, 'rowTwo': tuesday.row === 2, 'rowThree': tuesday.row === 3, 'rowFour': tuesday.row === 4, 'rowFive': tuesday.row === 5, 'rowSix': tuesday.row === 6}" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
-      <li v-on:click='dayNum = wednesday.day' v-bind:class="{'wednesdayCol': true, 'rowOne': wednesday.row === 1, 'rowTwo': wednesday.row === 2, 'rowThree': wednesday.row === 3, 'rowFour': wednesday.row === 4, 'rowFive': wednesday.row === 5, 'rowSix': wednesday.row === 6}" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
-      <li v-on:click='dayNum = thursday.day' v-bind:class="{'thursdayCol': true, 'rowOne': thursday.row === 1, 'rowTwo': thursday.row === 2, 'rowThree': thursday.row === 3, 'rowFour': thursday.row === 4, 'rowFive': thursday.row === 5, 'rowSix': thursday.row === 6}" v-for="thursday in thursdays">{{thursday.day}}</li>
-      <li v-on:click='dayNum = friday.day' v-bind:class="{'fridayCol': true, 'rowOne': friday.row === 1, 'rowTwo': friday.row === 2, 'rowThree': friday.row === 3, 'rowFour': friday.row === 4, 'rowFive': friday.row === 5, 'rowSix': friday.row === 6}" v-for="friday in fridays">{{friday.day}}</li>
-      <li v-on:click='dayNum = saturday.day' v-bind:class="{'saturdayCol': true, 'rowOne': saturday.row === 1, 'rowTwo': saturday.row === 2, 'rowThree': saturday.row === 3, 'rowFour': saturday.row === 4, 'rowFive': saturday.row === 5, 'rowSix': saturday.row === 6}" v-for="saturday in saturdays">{{saturday.day}}</li>
-      <li v-on:click='dayNum = sunday.day' v-bind:class="{'sundayCol': true, 'rowOne': sunday.row === 1, 'rowTwo': sunday.row === 2, 'rowThree': sunday.row === 3, 'rowFour': sunday.row === 4, 'rowFive': sunday.row === 5, 'rowSix': sunday.row === 6}" v-for="sunday in sundays">{{sunday.day}}</li>
+      <li v-on:click="dayNum = monday.day, dayClicked = true" v-bind:class="{'mondayCol': true, 'rowOne': monday.row === 1, 'rowTwo': monday.row === 2, 'rowThree': monday.row === 3, 'rowFour': monday.row === 4, 'rowFive': monday.row === 5, 'rowSix': monday.row === 6}" v-for="monday in mondays">{{monday.day}}</li>
+      <li v-on:click="dayNum = tuesday.day, dayClicked = true" v-bind:class="{'tuesdayCol': true, 'rowOne': tuesday.row === 1, 'rowTwo': tuesday.row === 2, 'rowThree': tuesday.row === 3, 'rowFour': tuesday.row === 4, 'rowFive': tuesday.row === 5, 'rowSix': tuesday.row === 6}" v-for="tuesday in tuesdays">{{tuesday.day}}</li>
+      <li v-on:click="dayNum = wednesday.day, dayClicked = true" v-bind:class="{'wednesdayCol': true, 'rowOne': wednesday.row === 1, 'rowTwo': wednesday.row === 2, 'rowThree': wednesday.row === 3, 'rowFour': wednesday.row === 4, 'rowFive': wednesday.row === 5, 'rowSix': wednesday.row === 6}" v-for="wednesday in wednesdays">{{wednesday.day}}</li>
+      <li v-on:click="dayNum = thursday.day, dayClicked = true" v-bind:class="{'thursdayCol': true, 'rowOne': thursday.row === 1, 'rowTwo': thursday.row === 2, 'rowThree': thursday.row === 3, 'rowFour': thursday.row === 4, 'rowFive': thursday.row === 5, 'rowSix': thursday.row === 6}" v-for="thursday in thursdays">{{thursday.day}}</li>
+      <li v-on:click="dayNum = friday.day, dayClicked = true" v-bind:class="{'fridayCol': true, 'rowOne': friday.row === 1, 'rowTwo': friday.row === 2, 'rowThree': friday.row === 3, 'rowFour': friday.row === 4, 'rowFive': friday.row === 5, 'rowSix': friday.row === 6}" v-for="friday in fridays">{{friday.day}}</li>
+      <li v-on:click="dayNum = saturday.day, dayClicked = true" v-bind:class="{'saturdayCol': true, 'rowOne': saturday.row === 1, 'rowTwo': saturday.row === 2, 'rowThree': saturday.row === 3, 'rowFour': saturday.row === 4, 'rowFive': saturday.row === 5, 'rowSix': saturday.row === 6}" v-for="saturday in saturdays">{{saturday.day}}</li>
+      <li v-on:click="dayNum = sunday.day, dayClicked = true" v-bind:class="{'sundayCol': true, 'rowOne': sunday.row === 1, 'rowTwo': sunday.row === 2, 'rowThree': sunday.row === 3, 'rowFour': sunday.row === 4, 'rowFive': sunday.row === 5, 'rowSix': sunday.row === 6}" v-for="sunday in sundays">{{sunday.day}}</li>
     </ul>
     <div>{{ this.day }}</div>
-    <div class="dayView">
-      <div class="time">12:00</div>
-      <div class="title">Job</div>
-      <div class="location">1234 w address ln</div>
-      <div class="customerContact">(123)456-789</div>
-    </div>
+    <div class="colorCode"></div>
+    <day class="day" v-bind:class="dayLogic" v-on:backDay="backDay" v-on:nextDay="nextDay" v-on:calendar="calendar" :monthDay="this.months[this.monthNum].month" :dayNum="this.dayNum" :yearNum="this.year"></day>
   </div>
 </template>
 
 <script>
+import Day from './elements/Days'
 export default {
+  name: 'Schedule',
+  components: {
+    'day': Day
+  },
   created () {
     let time = new Date()
     let vue = this
@@ -48,18 +52,18 @@ export default {
   data: function () {
     return { // number of days
       months: [
-        { monthNum: 0, month: 'January', days: 31, startingDay: 'monday' },
-        { monthNum: 1, month: 'Feburary', days: 28, startingDay: 'thursday' }, // 29
-        { monthNum: 2, month: 'March', days: 31, startingDay: 'thursday' },
-        { monthNum: 3, month: 'April', days: 30, startingDay: 'sunday' },
-        { monthNum: 4, month: 'May', days: 31, startingDay: 'tuesday' },
-        { monthNum: 5, month: 'June', days: 30, startingDay: 'friday' },
-        { monthNum: 6, month: 'July', days: 31, startingDay: 'sunday' },
-        { monthNum: 7, month: 'August', days: 31, startingDay: 'wednesday' },
-        { monthNum: 8, month: 'September', days: 30, startingDay: 'saturday' },
-        { monthNum: 9, month: 'October', days: 31, startingDay: 'monday' },
-        { monthNum: 10, month: 'November', days: 30, startingDay: 'thursday' },
-        { monthNum: 11, month: 'December', days: 31, startingDay: 'saturday' }],
+        { monthNum: 0, month: 'January', days: 31, startingDay: 'sunday' },
+        { monthNum: 1, month: 'Feburary', days: 28, startingDay: 'wednesday' }, // 29
+        { monthNum: 2, month: 'March', days: 31, startingDay: 'wednesday' },
+        { monthNum: 3, month: 'April', days: 30, startingDay: 'saturday' },
+        { monthNum: 4, month: 'May', days: 31, startingDay: 'monday' },
+        { monthNum: 5, month: 'June', days: 30, startingDay: 'thursday' },
+        { monthNum: 6, month: 'July', days: 31, startingDay: 'saturday' },
+        { monthNum: 7, month: 'August', days: 31, startingDay: 'tuesday' },
+        { monthNum: 8, month: 'September', days: 30, startingDay: 'friday' },
+        { monthNum: 9, month: 'October', days: 31, startingDay: 'sunday' },
+        { monthNum: 10, month: 'November', days: 30, startingDay: 'wednesday' },
+        { monthNum: 11, month: 'December', days: 31, startingDay: 'friday' }],
       month: '',
       monthNum: 0,
       dayNum: 0,
@@ -69,14 +73,22 @@ export default {
       wednesdays: [],
       thursdays: [],
       fridays: [],
-      saturday: [],
-      sunday: []
+      saturdays: [],
+      sundays: [],
+      dayClicked: false
+    }
+  },
+  computed: {
+    dayLogic: function () {
+      return {
+        hidden: !this.dayClicked,
+        day: this.dayClicked
+      }
     }
   },
   methods: {
     dayPopulate () {
       let vue = this
-      console.log(vue.months[vue.monthNum].days)
       let i = 0
       let rowNum = 1
       let dayString = vue.months[vue.monthNum].startingDay
@@ -169,6 +181,16 @@ export default {
       }
       else if (vue.monthNum === 0) {
         vue.monthNum = 11
+        let x = vue.year - 2000
+        if (x % 4 === 0) {
+          vue.months[1].days = 29
+          vue.drift(true, false)
+        }
+        else {
+          vue.months[1].days = 28
+          vue.drift(false, false)
+        }
+        vue.year--
       }
       vue.monthCompute()
       vue.dayClear()
@@ -181,33 +203,196 @@ export default {
       }
       else if (vue.monthNum === 11) {
         vue.monthNum = 0
+        vue.year++
+        let x = vue.year - 2000
+        if (x % 4 === 0) {
+          vue.months[1].days = 29
+          vue.drift(true, true)
+        }
+        else {
+          vue.months[1].days = 28
+          vue.drift(false, true)
+        }
       }
       vue.monthCompute()
       vue.dayClear()
       vue.dayPopulate()
+    },
+    drift (x, y) {
+      let vue = this
+      let i = 0
+      for (i = 0; i < 12; i++) {
+        if (vue.months[i].startingDay === 'monday') {
+          if (y === true) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'tuesday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'wednesday'
+            }
+          }
+          else if (y === false) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'sunday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'saturday'
+            }
+          }
+        }
+        else if (vue.months[i].startingDay === 'tuesday') {
+          if (y === true) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'wednesday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'thursday'
+            }
+          }
+          else if (y === false) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'monday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'sunday'
+            }
+          }
+        }
+        else if (vue.months[i].startingDay === 'wednesday') {
+          if (y === true) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'thursday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'friday'
+            }
+          }
+          else if (y === false) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'tuesday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'monday'
+            }
+          }
+        }
+        else if (vue.months[i].startingDay === 'thursday') {
+          if (y === true) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'friday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'saturday'
+            }
+          }
+          else if (y === false) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'wednesday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'tuesday'
+            }
+          }
+        }
+        else if (vue.months[i].startingDay === 'friday') {
+          if (y === true) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'saturday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'sunday'
+            }
+          }
+          else if (y === false) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'thursday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'wednesday'
+            }
+          }
+        }
+        else if (vue.months[i].startingDay === 'saturday') {
+          if (y === true) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'sunday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'monday'
+            }
+          }
+          else if (y === false) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'friday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'thursday'
+            }
+          }
+        }
+        else if (vue.months[i].startingDay === 'sunday') {
+          if (y === true) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'monday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'tuesday'
+            }
+          }
+          else if (y === false) {
+            if (x === false || i < 2) {
+              vue.months[i].startingDay = 'saturday'
+            }
+            else if (x === true && i > 1) {
+              vue.months[i].startingDay = 'friday'
+            }
+          }
+        }
+      }
+    },
+    backDay () {
+      let vue = this
+      if (this.dayNum > 1) {
+        this.dayNum--
+      }
+      else if (this.dayNum === 1) {
+        vue.previous()
+        this.dayNum = this.months[this.monthNum].days
+      }
+    },
+    nextDay () {
+      let vue = this
+      if (this.dayNum === this.months[this.monthNum].days) {
+        this.dayNum = 1
+        vue.next()
+      }
+      else {
+        this.dayNum++
+      }
+    },
+    calendar () {
+      this.dayClicked = false
     }
   }
 }
-// for (i < #of days) {push i onto days recieving array in html}
 </script>
 
-<style>
+<style scoped lang="less">
 .main {
   font-family: Tahoma;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 100px 50px 50px 50px 50px 50px 50px 50px 50px;
+  grid-template-rows: 200px repeat(9, 50px);
 }
 /* Month header */
 .month {
-    padding: 70px 25px;
+    height: 200px;
     width: 100%;
     background: #f4c20d;
     text-align: center;
     grid-column-start: 1;
     grid-column-end: 8;
-    grid-row-start: 1;
-    grid-row-end: 4;
+    grid-row: 1;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 1fr 1fr;
@@ -216,8 +401,10 @@ export default {
 .monthName {
   font-size: 1.6em;
   color: white;
-  grid-column-start:2;
-  grid-column-end:5;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 1;
 }
 /* Month list */
 .month ul {
@@ -226,10 +413,14 @@ export default {
 }
 
 .month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 .year {
@@ -245,6 +436,8 @@ export default {
     color: white;
     grid-column-start: 1;
     grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
     padding-top: 10px;
 }
 
@@ -253,64 +446,65 @@ export default {
     color: white;
     grid-column-start: 5;
     grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
     padding-top: 10px;
 }
 
+.list {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-image: url('')
+}
+
+.search {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-image: url('')
+}
+
+.appointment {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-image: url('')
+}
 /* Weekdays (Mon-Sun) */
 .weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color:#ddd;
-    grid-column-start: 1;
-    grid-column-end: 8;
-    grid-row-start: 4;
-    grid-row-end: 4;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .weekdays li {
-    width: 13.6%;
-    color: #666;
+  width: 13.6%;
+  color: #666;
 }
 
 /* Days (1-31) */
 .days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    grid-column-start: 1;
-    grid-column-end: 8;
-    grid-row-start: 5;
-    grid-row-end: 10;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-}
-
-/*schedule day view */
-.dayView {
-  display: none;
-  grid-column-start: 2;
-  grid-column-end: 6;
-  grid-row-start: 1;
-  grid-row-end: 4;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 30px 30px 30px;
-}
-
-.time {
-  display: none;
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+  width: 100%;
+  height: 100%;
   grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  border: 5px;
-  font-size: 2.5em;
+  grid-column-end: 8;
+  grid-row-start: 3;
+  grid-row-end: 8;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .title {
@@ -320,22 +514,6 @@ export default {
   grid-row-start: 1;
   grid-row-end: 2;
   font-size: 1.5em;
-}
-
-.location {
-  display: none;
-  grid-column-start: 3;
-  grid-column-end: 6;
-  grid-row-start: 2;
-  grid-row-end: 2;
-}
-
-.customerContact {
-  display: none;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row-start: 4;
-  grid-row-end: 4;
 }
 
 .monday {
@@ -446,7 +624,7 @@ export default {
   grid-row: 1;
 }
 
-.rowTwo{
+.rowTwo {
   grid-row: 2;
 }
 
@@ -477,5 +655,26 @@ export default {
     padding: 5px;
     background: #f4c20d;
     color: white !important
+}
+
+.colorCode {
+  grid-column-start: ;
+  grid-column-end: ;
+  grid-row-start: ;
+  grid-row-end: ;
+  border-top: 5px;
+  border-left: 5px;
+  border-right: 5px;
+  border-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.day {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 </style>
