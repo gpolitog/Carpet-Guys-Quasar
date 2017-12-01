@@ -92,6 +92,8 @@ export default {
   padding-top: 10px;
   background-color: #fff;
   border-radius: 0 0 20px 20px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .calendarButton {

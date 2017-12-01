@@ -452,27 +452,30 @@ export default {
 }
 
 .list {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  background-image: url('')
+  grid-column: 1;
+  grid-row: 3;
+  background-image: url('../assets/list.ico');
+  height: 100%;
+  width: 100%;
+  transform: scale(.50, .50)
 }
 
 .search {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  background-image: url('')
+  grid-column: 3;
+  grid-row: 3;
+  background-image: url('../assets/search.png');
+  height: 100%;
+  width: 100%;
+  transform: scale(.50,.50)
 }
 
 .appointment {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  background-image: url('')
+  grid-column: 4;
+  grid-row: 3;
+  background-image: url('../assets/add.png');
+  height: 100%;
+  width: 100%;
+  transform: scale(.50,.50)
 }
 /* Weekdays (Mon-Sun) */
 .weekdays {
