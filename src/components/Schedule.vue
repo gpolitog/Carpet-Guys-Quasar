@@ -7,7 +7,7 @@
       <div class="year">{{ this.year }}</div>
       <div v-on:click:="" class="list"></div>
       <div v-on:click:="" class="search"></div>
-      <div v-on:click="appointmentShow = true" class="appointmentSet">clickme</div>
+      <div v-on:click="appointmentShow = true" class="appointment">clickme</div>
     </div>
     <div class="weekdays">
       <div class="monday">Mo</div>
@@ -447,7 +447,7 @@ export default {
     grid-row-end: 2;
     padding-top: 10px;
 }
-
+/*
 .list {
   grid-column: 1;
   grid-row: 3;
@@ -456,6 +456,7 @@ export default {
   width: 100%;
   transform: scale(.50, .50)
 }
+*/
 
 .search {
   grid-column: 3;
@@ -466,12 +467,11 @@ export default {
   transform: scale(.50,.50)
 }
 
-.appointmentSet {
+.appointment {
   grid-column: 4;
   grid-row: 3;
   height: 100%;
   width: 100%;
-  transform: scale(.50,.50)
 }
 /* Weekdays (Mon-Sun) */
 .weekdays {
@@ -488,7 +488,7 @@ export default {
 
 .weekdays li {
   width: 13.6%;
-  color: #666;
+  color: #667;
 }
 
 /* Days (1-31) */
@@ -678,6 +678,6 @@ export default {
 }
 
 .appointmentSet {
-  
+
 }
 </style>
