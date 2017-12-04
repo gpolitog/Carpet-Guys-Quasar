@@ -62,7 +62,7 @@ export default {
       this.$emit('calendar')
     },
     appointmentsPopulate: function () {
-      this.appointments.push({startTime: 'twoAm', endTime: 'fourAm', name: 'Lunch', type: 'personal'})
+      this.appointments.push({timeStart: 'twoAm', timeEnd: 'fourAm', type: 'personal', title: 'Lunch', description: ''})
     },
     appointmentsClear: function () {
       this.appointments = []
@@ -75,12 +75,12 @@ export default {
 @yellow: #f4c20d;
 @grey: #bbdef0;
 .main {
-  width: 100%;
-  height: 960px;
-  display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
-  grid-template-rows: 90px 860px 20px;
-  background-color: @grey;
+width: 100%;
+height: 960px;
+display: grid;
+grid-template-columns: 1fr 6fr 1fr;
+grid-template-rows: 90px 860px 20px;
+background-color: @grey;
 }
 .dayView {
   grid-column: 2;

@@ -7,7 +7,7 @@
       <div class="year">{{ this.year }}</div>
       <div v-on:click:="" class="list"></div>
       <div v-on:click:="" class="search"></div>
-      <div v-on:click:="" class="appointment"></div>
+      <div v-on:click="appointmentShow = true" class="appointmentSet">clickme</div>
     </div>
     <div class="weekdays">
       <div class="monday">Mo</div>
@@ -29,16 +29,19 @@
     </ul>
     <div>{{ this.day }}</div>
     <div class="colorCode"></div>
-    <day class="day" v-bind:class="dayLogic" v-on:backDay="backDay" v-on:nextDay="nextDay" v-on:calendar="calendar" :monthDay="this.months[this.monthNum].month" :dayNum="this.dayNum" :yearNum="this.year"></day>
+    <day class="day" v-if="dayClicked" v-on:backDay="backDay" v-on:nextDay="nextDay" v-on:calendar="calendar" :monthDay="this.months[this.monthNum].month" :dayNum="this.dayNum" :yearNum="this.year"></day>
+    <appointmentSet class="appointmentSet" v-if="appointmentShow"></appointmentSet>
   </div>
 </template>
 
 <script>
 import Day from './elements/Days'
+import AppointmentSet from './elements/AppointmentSet'
 export default {
   name: 'Schedule',
   components: {
-    'day': Day
+    'day': Day,
+    'appointmentSet': AppointmentSet
   },
   created () {
     let time = new Date()
@@ -64,6 +67,7 @@ export default {
         { monthNum: 9, month: 'October', days: 31, startingDay: 'sunday' },
         { monthNum: 10, month: 'November', days: 30, startingDay: 'wednesday' },
         { monthNum: 11, month: 'December', days: 31, startingDay: 'friday' }],
+      appointment: [{ timeStart: 0, timeEnd: 0, title: '', description: '', type: '' }],
       month: '',
       monthNum: 0,
       dayNum: 0,
@@ -75,15 +79,8 @@ export default {
       fridays: [],
       saturdays: [],
       sundays: [],
-      dayClicked: false
-    }
-  },
-  computed: {
-    dayLogic: function () {
-      return {
-        hidden: !this.dayClicked,
-        day: this.dayClicked
-      }
+      dayClicked: false,
+      appointmentShow: false
     }
   },
   methods: {
@@ -469,10 +466,9 @@ export default {
   transform: scale(.50,.50)
 }
 
-.appointment {
+.appointmentSet {
   grid-column: 4;
   grid-row: 3;
-  background-image: url('../assets/add.png');
   height: 100%;
   width: 100%;
   transform: scale(.50,.50)
@@ -679,5 +675,9 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.appointmentSet {
+  
 }
 </style>
