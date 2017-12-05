@@ -7,7 +7,7 @@
       <div class="year">{{ this.year }}</div>
       <div v-on:click:="" class="list"></div>
       <div v-on:click:="" class="search"></div>
-      <div v-on:click="appointmentShow = true" class="appointment">clickme</div>
+      <div v-on:click="appointmentShow = true" class="appointment">New Appointment</div>
     </div>
     <div class="weekdays">
       <div class="monday">Mo</div>
@@ -30,7 +30,7 @@
     <div>{{ this.day }}</div>
     <div class="colorCode"></div>
     <day class="day" v-if="dayClicked" v-on:backDay="backDay" v-on:nextDay="nextDay" v-on:calendar="calendar" :monthDay="this.months[this.monthNum].month" :dayNum="this.dayNum" :yearNum="this.year"></day>
-    <appointmentSet class="appointmentSet" v-if="appointmentShow"></appointmentSet>
+    <appointmentSet class="appointmentSet" v-if="appointmentShow" v-on:backAppointment="appointmentShow = false" ></appointmentSet>
   </div>
 </template>
 
@@ -396,7 +396,7 @@ export default {
 }
 
 .monthName {
-  font-size: 1.6em;
+  font-size: 2em;
   color: white;
   grid-column-start: 2;
   grid-column-end: 5;
@@ -426,6 +426,7 @@ export default {
   grid-column-end: 4;
   grid-row: 2;
   text-align: center;
+  font-size: 2em;
 }
 
 /* Previous button inside month header */

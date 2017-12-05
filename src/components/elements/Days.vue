@@ -75,12 +75,12 @@ export default {
 @yellow: #f4c20d;
 @grey: #bbdef0;
 .main {
-width: 100%;
-height: 960px;
-display: grid;
-grid-template-columns: 1fr 6fr 1fr;
-grid-template-rows: 90px 860px 20px;
-background-color: @grey;
+  width: 100%;
+  height: 960px;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 90px 860px 20px;
+  background-color: @grey;
 }
 .dayView {
   grid-column: 2;
@@ -105,6 +105,7 @@ background-color: @grey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  color: white;
 }
 
 .calendar {
@@ -116,6 +117,7 @@ background-color: @grey;
   grid-column-end: ;
   grid-row-start: ;
   grid-row-end: ;
+  font-size: 2em;
 }
 
 .dayNum {
@@ -124,6 +126,7 @@ background-color: @grey;
   grid-row-start: ;
   grid-row-end: ;
   text-align: center;
+  font-size: 2em;
 }
 
 .yearNum {
@@ -131,6 +134,7 @@ background-color: @grey;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 2;
+  font-size: 2em;
 }
 
 .back {
