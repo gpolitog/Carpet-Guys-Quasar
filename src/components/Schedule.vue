@@ -9,7 +9,6 @@
       <div v-on:click:="" class="search"></div>
       <div v-on:click="appointmentShow = true" class="appointment">New Appointment</div>
     </div>
-    <div class="year">{{ this.year }}</div>
     <div class="weekdays">
       <div class="monday">Mo</div>
       <div class="tuesday">Tu</div>
@@ -50,7 +49,8 @@ export default {
     vue.year = time.getFullYear()
     vue.monthNum = time.getMonth()
     vue.monthCompute()
-  // month -> {}# of days
+    vue.dayClear()
+    vue.dayPopulate()
   },
   data: function () {
     return { // number of days
@@ -190,6 +190,8 @@ export default {
         vue.year--
       }
       vue.monthCompute()
+      vue.dayClear()
+      vue.dayPopulate()
     },
     next () {
       let vue = this
@@ -516,40 +518,51 @@ export default {
 
 .monday {
   grid-column-start: 1;
-  grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .tuesday {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .wednesday {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .thursday {
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .friday {
   grid-column-start: 5;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .saturday {
   grid-column-start: 6;
   grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 3;
+  margin-left: 15px;
 }
+
 .sunday {
   grid-column-start: 7;
   grid-column-end: 7;
@@ -614,16 +627,29 @@ export default {
 .rowTwo {
   grid-row: 2;
 }
-.days li {
-    list-style-type: none;
-    display: inline;
-    width: 10%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color:#777;
+
+.rowThree {
+  grid-row: 3;
 }
 
+.rowFour {
+  grid-row: 4;
+}
+
+.rowFive {
+  grid-row: 5;
+}
+
+.rowSix {
+  grid-row: 6;
+}
+
+.days li {
+    list-style-type: none;
+    text-align: center;
+    margin-bottom: 5px;
+    color:#777;
+}
 /* Highlight the "current" day */
 .days li .active {
     padding: 5px;
