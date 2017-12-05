@@ -129,19 +129,16 @@
   background-image: linear-gradient;
 }
 h1 {
-  font-family: ;
-  color: ;
-  text-shadow: 2px 1px 2px #515151;
-  -webkit-background-clip: text;
-     -moz-background-clip: text;
-          background-clip: text;
-  font-size: ;
+  font-family: tahoma;
+  color: #c9272b;
+  font-size: 3em;
   padding-left: 12px;
 }
 input {
   background-color: transparent;
-  border: none;
+  border: solid 2px #fbdd21;
   border-left: ;
+  border-radius: 5px;
   border-bottom: ;
   color: ;
   padding-top: 12px;
@@ -161,9 +158,14 @@ input {
 
 }
 .signIn {
-
+background-color: #fbdd21;
+border: solid 2px #fbdd21;
+border-bottom-right-radius: 6px;
+border-bottom-left-radius: 6px;
+font-size: 1.2em;
 }
 .links h6 {
   text-align: center;
+  color: #454746;
 }
 </style>
