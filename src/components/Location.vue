@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div v-bind:class="mapContainer">
-      <h1>Current Location:</h1>
+      <h4>Current Location:</h4>
       <mapbox :access-token="this.mapboxToken" :map-options="this.mapOptions" @map-load="mapLoaded"></mapbox>
     </div>
   </div>
@@ -10,7 +10,7 @@
 <script>
 import Mapbox from 'mapbox-gl-vue'
 export default {
-  name: 'Call',
+  name: '',
   components: {
     'mapbox': Mapbox
   },

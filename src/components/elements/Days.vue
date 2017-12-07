@@ -4,6 +4,11 @@
       <div class="monthNum">{{ this.monthDay }}</div>
       <div class="dayNum">{{ this.dayNum }}</div>
       <div class="yearNum">{{ this.yearNum }}</div>
+      <div class="colorCode">Personal: Professional: Installation: Estimate:</div>
+      <div class="personalColor"></div>
+      <div class="professionalColor"></div>
+      <div class="installationColor"></div>
+      <div class="estimateColor"></div>
     </div>
     <div class="back" v-on:click="backDay"><div class="backIcon">&#10094;</div></div>
     <div class="next" v-on:click="nextDay"><div class="nextIcon">&#10095;</div></div>
@@ -34,7 +39,7 @@
       <div class="elevenPm">11:00pm<hr/></div>
       <div class="appointment" v-for="appointment in appointments" v-bind:class="appointmentLogic(appointment)" v-on:click="appointmentClick(appointment)" >{{appointment.title}}</div>
     </div>
-    <appointmentSet v-if="appointmentShow" v-on:backAppointment="appointmentShow = false"  :editable="editable" :appointmentProp="clickedAppointment"></appointmentSet>
+    <appointmentSet v-if="appointmentShow" v-on:backAppointment="appointmentShow = false"  v-on:saveAppointment="appointmentSave" :editable="editable" :appointmentProp="clickedAppointment"></appointmentSet>
   </div>
 </template>
 
@@ -55,9 +60,11 @@ export default {
     }
   },
   created () {
-    this.appointments.push(this.appointmentsProp)
+    let i = 0
     this.appointmentsClear()
-    this.appointmentsPopulate()
+    for (i = 0; i < this.appointmentsProp.length; i++) {
+      this.appointments.push(this.appointmentsProp[i])
+    }
   },
   methods: {
     appointmentLogic: function (appointment) {
@@ -120,6 +127,12 @@ export default {
     appointmentHide: function () {
       this.appointmentShow = false
     },
+    appointmentSave: function (appointment) {
+      this.appointmentShow = false
+      if (appointment !== null) {
+        this.appointments.push(appointment)
+      }
+    },
     backDay: function () {
       this.$emit('backDay')
       this.appointmentsClear()
@@ -180,12 +193,61 @@ export default {
   background-color: @yellow;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 25px 20px 20px 20px;
   color: white;
+}
+
+.colorCode {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.personalColor {
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 25px;
+  margin-bottom: 5px;
+  grid-column: 5;
+  grid-row: 1;
+  background-color: rgba(255, 255, 0, .3);
+  border: 1px solid black;
+}
+
+.professionalColor {
+  margin-left: 5px;
+  margin-right: 25px;
+  margin-bottom: 5px;
+  grid-column: 5;
+  grid-row: 2;
+  background-color: rgba(0, 255, 0, .3);
+  border: 1px solid black;
+}
+
+.installationColor {
+  margin-left: 5px;
+  margin-right: 25px;
+  margin-bottom: 5px;
+  grid-column: 5;
+  grid-row: 3;
+  background-color: rgba(0, 0, 255, .3);
+  border: 1px solid black;
+}
+
+.estimateColor {
+  margin-left: 5px;
+  margin-right: 25px;
+  margin-bottom: 5px;
+  grid-column: 5;
+  grid-row: 4;
+  background-color: rgba(255, 0, 0, .3);
+  border: 1px solid black;
 }
 
 .appointment {
   text-align: center;
+  margin-left: 70px;
 }
 
 .personal {
@@ -224,8 +286,8 @@ export default {
 .yearNum {
   grid-column-start: 2;
   grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
   font-size: 2em;
 }
 

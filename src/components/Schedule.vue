@@ -30,7 +30,7 @@
     <div>{{ this.day }}</div>
     <div class="colorCode"></div>
     <day class="day" v-if="dayClicked" v-on:backDay="backDay" v-on:nextDay="nextDay" v-on:calendar="calendar" :monthDay="this.months[this.monthNum].month" :dayNum="this.dayNum" :yearNum="this.year" :appointmentsProp="this.appointment"></day>
-    <appointmentSet class="appointmentSet" v-if="appointmentShow" v-on:backAppointment="newAppointment" :appointmentProp="appointment"></appointmentSet>
+    <appointmentSet class="appointmentSet" v-if="appointmentShow" v-on:saveAppointment="newAppointment" v-on:backAppointment="hideAppointment"></appointmentSet>
   </div>
 </template>
 
@@ -377,6 +377,9 @@ export default {
       if (appointment !== null) {
         this.appointment.push(appointment)
       }
+    },
+    hideAppointment () {
+      this.appointmentShow = false
     }
   }
 }

@@ -29,31 +29,31 @@
         <option value="elevenPm">11:00pm</option>
       </select>
       <select v-model="timeEndSelect" class="timeEnd">
-      <option value="twelveAm">12:00am</option>
-      <option value="oneAm">1:00am</option>
-      <option value="twoAm">2:00am</option>
-      <option value="threeAm">3:00am</option>
-      <option value="fourAm">4:00am</option>
-      <option value="fiveAm">5:00am</option>
-      <option value="sixAm">6:00am</option>
-      <option value="sevenAm">7:00am</option>
-      <option value="eightAm">8:00am</option>
-      <option value="nineAm">9:00am</option>
-      <option value="tenAm">10:00pm</option>
-      <option value="elevenAm">10:00pm</option>
-      <option value="twelvePm">12:00pm</option>
-      <option value="onePm">1:00pm</option>
-      <option value="twoPm">2:00pm</option>
-      <option value="threePm">3:00pm</option>
-      <option value="fourPm">4:00pm</option>
-      <option value="fivePm">5:00pm</option>
-      <option value="sixPm">6:00pm</option>
-      <option value="sevenPm">7:00pm</option>
-      <option value="eightPm">8:00pm</option>
-      <option value="ninePm">9:00pm</option>
-      <option value="tenPm">10:00pm</option>
-      <option value="elevenPm">11:00pm</option>
-    </select>
+        <option value="twelveAm">12:00am</option>
+        <option value="oneAm">1:00am</option>
+        <option value="twoAm">2:00am</option>
+        <option value="threeAm">3:00am</option>
+        <option value="fourAm">4:00am</option>
+        <option value="fiveAm">5:00am</option>
+        <option value="sixAm">6:00am</option>
+        <option value="sevenAm">7:00am</option>
+        <option value="eightAm">8:00am</option>
+        <option value="nineAm">9:00am</option>
+        <option value="tenAm">10:00pm</option>
+        <option value="elevenAm">10:00pm</option>
+        <option value="twelvePm">12:00pm</option>
+        <option value="onePm">1:00pm</option>
+        <option value="twoPm">2:00pm</option>
+        <option value="threePm">3:00pm</option>
+        <option value="fourPm">4:00pm</option>
+        <option value="fivePm">5:00pm</option>
+        <option value="sixPm">6:00pm</option>
+        <option value="sevenPm">7:00pm</option>
+        <option value="eightPm">8:00pm</option>
+        <option value="ninePm">9:00pm</option>
+        <option value="tenPm">10:00pm</option>
+        <option value="elevenPm">11:00pm</option>
+      </select>
       <select v-model="selected" class="type">
         <option value="personal">Personal</option>
         <option value="professional">Professional</option>
@@ -71,9 +71,73 @@
       <div class="timeEndView" id="endTime">{{appointment[0].timeEnd}}</div>
       <div class="typeView">{{appointment[0].type}}</div>
       <div class="descriptionView">{{appointment[0].description}}</div>
-      <div v-on:click="" class="new">New</div>
-      <div v-on:click="" class="edit">Edit</div>
-      <div v-on:click="$emit('backAppointment')" class="backView">Back</div>
+      <div v-on:click="newAppointment" class="new">New</div>
+      <div v-on:click="editToggle = true" class="edit">Edit</div>
+      <div v-on:click="cancel" class="backView">Back</div>
+    </div>
+    <div v-if="editToggle" class="appointmentEdit">
+      <select v-model="appointment[0].timeStart" class="timeStart">
+        <option value="twelveAm">12:00am</option>
+        <option value="oneAm">1:00am</option>
+        <option value="twoAm">2:00am</option>
+        <option value="threeAm">3:00am</option>
+        <option value="fourAm">4:00am</option>
+        <option value="fiveAm">5:00am</option>
+        <option value="sixAm">6:00am</option>
+        <option value="sevenAm">7:00am</option>
+        <option value="eightAm">8:00am</option>
+        <option value="nineAm">9:00am</option>
+        <option value="tenAm">10:00pm</option>
+        <option value="elevenAm">10:00pm</option>
+        <option value="twelvePm">12:00pm</option>
+        <option value="onePm">1:00pm</option>
+        <option value="twoPm">2:00pm</option>
+        <option value="threePm">3:00pm</option>
+        <option value="fourPm">4:00pm</option>
+        <option value="fivePm">5:00pm</option>
+        <option value="sixPm">6:00pm</option>
+        <option value="sevenPm">7:00pm</option>
+        <option value="eightPm">8:00pm</option>
+        <option value="ninePm">9:00pm</option>
+        <option value="tenPm">10:00pm</option>
+        <option value="elevenPm">11:00pm</option>
+      </select>
+      <select v-model="appointment[0].timeEnd" class="timeEnd">
+        <option value="twelveAm">12:00am</option>
+        <option value="oneAm">1:00am</option>
+        <option value="twoAm">2:00am</option>
+        <option value="threeAm">3:00am</option>
+        <option value="fourAm">4:00am</option>
+        <option value="fiveAm">5:00am</option>
+        <option value="sixAm">6:00am</option>
+        <option value="sevenAm">7:00am</option>
+        <option value="eightAm">8:00am</option>
+        <option value="nineAm">9:00am</option>
+        <option value="tenAm">10:00pm</option>
+        <option value="elevenAm">10:00pm</option>
+        <option value="twelvePm">12:00pm</option>
+        <option value="onePm">1:00pm</option>
+        <option value="twoPm">2:00pm</option>
+        <option value="threePm">3:00pm</option>
+        <option value="fourPm">4:00pm</option>
+        <option value="fivePm">5:00pm</option>
+        <option value="sixPm">6:00pm</option>
+        <option value="sevenPm">7:00pm</option>
+        <option value="eightPm">8:00pm</option>
+        <option value="ninePm">9:00pm</option>
+        <option value="tenPm">10:00pm</option>
+        <option value="elevenPm">11:00pm</option>
+      </select>
+      <select v-model="appointment[0].type" class="type">
+        <option value="personal">Personal</option>
+        <option value="professional">Professional</option>
+        <option value="installation">Installation</option>
+        <option value="estimate">Estimate</option>
+      </select>
+      <input  v-model="appointment[0].title" class="title" placeholder="Title"></input>
+      <input  v-model="appointment[0].description" class="description" placeholder="Description"></input>
+      <div v-on:click="appointmentSaveEdit" class="appointmentSave">Save</div>
+      <div v-on:click="cancel" class="backEdit">Back</div>
     </div>
   </div>
 </template>
@@ -83,19 +147,28 @@ export default {
   name: 'appointmentSet',
   props: ['appointmentProp', 'editable'],
   created () {
-    this.appointment.push(this.appointmentProp)
+    if (this.appointmentProp !== null) {
+      this.appointment.push(this.appointmentProp)
+    }
     if (this.editable !== null) {
       this.edit = this.editable
     }
   },
   methods: {
     appointmentSave: function () {
-      this.appointment[0].timeStart = this.timeStartSelect
-      this.appointment[0].timeEnd = this.timeEndSelect
-      this.appointment[0].type = this.selected
-      this.appointment[0].title = this.title
-      this.appointment[0].description = this.description
-      this.$emit('backAppointment', this.appointment[0])
+      this.newAppointments[0].timeStart = this.timeStartSelect
+      this.newAppointments[0].timeEnd = this.timeEndSelect
+      this.newAppointments[0].type = this.selected
+      this.newAppointments[0].title = this.title
+      this.newAppointments[0].description = this.description
+      this.$emit('saveAppointment', this.newAppointments[0])
+    },
+    appointmentSaveEdit: function () {
+      this.$emit('editAppointment', this.appointment[0])
+      this.editToggle = false
+    },
+    newAppointment: function () {
+      this.edit = false
     },
     cancel: function () {
       this.$emit('backAppointment')
@@ -109,7 +182,9 @@ export default {
       title: '',
       description: '',
       edit: false,
-      appointment: []
+      editToggle: false,
+      appointment: [],
+      newAppointments: [{ timeStart: 'twelveAm', timeEnd: 'twelveAm', title: '', description: '', type: 'personal' }]
     }
   }
 }
