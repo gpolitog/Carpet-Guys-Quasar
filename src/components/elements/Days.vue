@@ -32,24 +32,94 @@
       <div class="ninePm">9:00pm<hr/></div>
       <div class="tenPm">10:00pm<hr/></div>
       <div class="elevenPm">11:00pm<hr/></div>
+      <div class="appointment" v-for="appointment in appointments" v-bind:class="appointmentLogic(appointment)" v-on:click="appointmentClick(appointment)" >{{appointment.title}}</div>
     </div>
+    <appointmentSet v-if="appointmentShow" v-on:backAppointment="appointmentShow = false"  :editable="editable" :appointmentProp="clickedAppointment"></appointmentSet>
   </div>
 </template>
 
 <script>
+import AppointmentSet from './AppointmentSet'
 export default {
   name: 'days',
-  props: ['monthDay', 'dayNum', 'yearNum'],
+  props: ['monthDay', 'dayNum', 'yearNum', 'appointmentsProp'],
+  components: {
+    'appointmentSet': AppointmentSet
+  },
   data: function () {
     return {
-      appointments: []
+      appointments: [],
+      clickedAppointment: [],
+      appointmentShow: false,
+      editable: true
     }
   },
   created () {
+    this.appointments.push(this.appointmentsProp)
     this.appointmentsClear()
     this.appointmentsPopulate()
   },
   methods: {
+    appointmentLogic: function (appointment) {
+      return {
+        appointment: true,
+        'twelveAmStart': appointment.timeStart === 'twelveAm',
+        'twelveAmEnd': appointment.timeEnd === 'twelveAm',
+        'oneAmStart': appointment.timeStart === 'oneAm',
+        'oneAmEnd': appointment.timeEnd === 'oneAm',
+        'twoAmStart': appointment.timeStart === 'twoAm',
+        'twoAmEnd': appointment.timeEnd === 'twoAm',
+        'threeAmStart': appointment.timeStart === 'threeAm',
+        'threeAmEnd': appointment.timeEnd === 'threeAm',
+        'fourAmStart': appointment.timeStart === 'fourAm',
+        'fourAmEnd': appointment.timeEnd === 'fourAm',
+        'fiveAmStart': appointment.timeStart === 'fiveAm',
+        'fiveAmEnd': appointment.timeEnd === 'fiveAm',
+        'sixAmStart': appointment.timeStart === 'sixAm',
+        'sixAmEnd': appointment.timeEnd === 'sixAm',
+        'sevenAmStart': appointment.timeStart === 'sevenAm',
+        'sevenAmEnd': appointment.timeEnd === 'sevenAm',
+        'eightAmStart': appointment.timeStart === 'eightAm',
+        'eightAmEnd': appointment.timeEnd === 'eightAm',
+        'nineAmStart': appointment.timeStart === 'nineAm',
+        'nineAmEnd': appointment.timeEnd === 'nineAm',
+        'tenAmStart': appointment.timeStart === 'tenAm',
+        'tenAmEnd': appointment.timeEnd === 'tenAm',
+        'elevenAmStart': appointment.timeStart === 'elevenAm',
+        'elevenAmEnd': appointment.timeEnd === 'elevenAm',
+        'twelvePmStart': appointment.timeStart === 'twelvePm',
+        'twelvePmEnd': appointment.timeEnd === 'twelvePm',
+        'onePmStart': appointment.timeStart === 'onePm',
+        'onePmEnd': appointment.timeEnd === 'onePm',
+        'twoPmStart': appointment.timeStart === 'twoPm',
+        'twoPmEnd': appointment.timeEnd === 'twoPm',
+        'threePmStart': appointment.timeStart === 'threePm',
+        'threePmEnd': appointment.timeEnd === 'threePm',
+        'fourPmStart': appointment.timeStart === 'fourPm',
+        'fourPmEnd': appointment.timeEnd === 'fourPm',
+        'fivePmStart': appointment.timeStart === 'fivePm',
+        'fivePmEnd': appointment.timeEnd === 'fivePm',
+        'sixPmStart': appointment.timeStart === 'sixPm',
+        'sixPmEnd': appointment.timeEnd === 'sixPm',
+        'sevenPmStart': appointment.timeStart === 'sevenPm',
+        'sevenPmEnd': appointment.timeEnd === 'sevenPm',
+        'eightPmStart': appointment.timeStart === 'eightPm',
+        'eightPmEnd': appointment.timeEnd === 'eightPm',
+        'ninePmStart': appointment.timeStart === 'ninePm',
+        'ninePmEnd': appointment.timeEnd === 'ninePm',
+        'tenPmStart': appointment.timeStart === 'tenPm',
+        'tenPmEnd': appointment.timeEnd === 'tenPm',
+        'elevenPmStart': appointment.timeStart === 'elevenPm',
+        'elevenPmEnd': appointment.timeEnd === 'elevenPm',
+        'personal': appointment.type === 'personal',
+        'profesional': appointment.type === 'professional',
+        'installation': appointment.type === 'installation',
+        'estimate': appointment.type === 'estimate'
+      }
+    },
+    appointmentHide: function () {
+      this.appointmentShow = false
+    },
     backDay: function () {
       this.$emit('backDay')
       this.appointmentsClear()
@@ -62,10 +132,15 @@ export default {
       this.$emit('calendar')
     },
     appointmentsPopulate: function () {
-      this.appointments.push({timeStart: 'twoAm', timeEnd: 'fourAm', type: 'personal', title: 'Lunch', description: ''})
+      this.appointments.push({timeStart: 'twoAm', timeEnd: 'fourAm', type: 'personal', title: 'Lunch', description: ''}, {timeStart: 'fiveAm', timeEnd: 'sevenAm', type: 'personal', title: 'Lunch', description: ''})
     },
     appointmentsClear: function () {
       this.appointments = []
+    },
+    appointmentClick: function (appointment) {
+      let appointmentPos = this.appointments.indexOf(appointment)
+      this.clickedAppointment = this.appointments[appointmentPos]
+      this.appointmentShow = true
     }
   }
 }
@@ -82,6 +157,7 @@ export default {
   grid-template-rows: 90px 860px 20px;
   background-color: @grey;
 }
+
 .dayView {
   grid-column: 2;
   grid-row: 2;
@@ -108,8 +184,24 @@ export default {
   color: white;
 }
 
-.calendar {
+.appointment {
+  text-align: center;
+}
 
+.personal {
+  background: rgba(255, 255, 0, .3);
+}
+
+.professional {
+  background: rgba(0, 255, 0, .3);
+}
+
+.installation {
+  background: rgba(0, 0, 255, .3);
+}
+
+.estimate {
+  background: rgba(255, 0, 0, .3);
 }
 
 .monthNum {
@@ -317,4 +409,292 @@ export default {
   grid-row: 24;
 }
 
+
+.twelveAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+}
+
+.oneAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 2;
+}
+
+.twoAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 3;
+}
+
+.threeAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 4;
+}
+
+.fourAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 5;
+}
+
+.fiveAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 6;
+}
+
+.sixAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 7;
+}
+
+.sevenAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 8;
+}
+
+.eightAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 9;
+}
+
+.nineAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 10;
+}
+
+.tenAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 11;
+}
+
+.elevenAmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 12;
+}
+
+.twelvePmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 13;
+}
+
+.onePmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 14;
+}
+
+.twoPmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 15;
+}
+
+.threePmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 16;
+}
+
+.fourPmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 17;
+}
+
+.fivePmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 18;
+}
+
+.sixPmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 19;
+}
+
+.sevenPmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 20;
+}
+
+.eightPmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 21;
+}
+
+.ninePmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 22;
+}
+
+.tenPmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 23;
+}
+
+.elevenPmStart {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 24;
+}
+
+.twelveAmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 1;
+}
+
+.oneAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 2;
+}
+
+.twoAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 3;
+}
+
+.threeAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 4;
+}
+
+.fourAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 5;
+}
+
+.fiveAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 6;
+}
+
+.sixAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 7;
+}
+
+.sevenAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 8;
+}
+
+.eightAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 9;
+}
+
+.nineAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 10;
+}
+
+.tenAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 11;
+}
+
+.elevenAmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 12;
+}
+
+.twelvePmEnd  {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 13;
+}
+
+.onePmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 14;
+}
+
+.twoPmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 15;
+}
+
+.threePmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 16;
+}
+
+.fourPmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 17;
+}
+
+.fivePmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 18;
+}
+
+.sixPmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 19;
+}
+
+.sevenPmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 20;
+}
+
+.eightPmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 21;
+}
+
+.ninePmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 22;
+}
+
+.tenPmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 23;
+}
+
+.elevenPmEnd {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-end: 24;
+}
 </style>

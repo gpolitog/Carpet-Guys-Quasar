@@ -5,9 +5,9 @@
       <div class="prev" v-on:click="previous">&#10094;</div>
       <div class="next" v-on:click="next">&#10095;</div>
       <div class="year">{{ this.year }}</div>
-      <div v-on:click:="" class="list"></div>
-      <div v-on:click:="" class="search"></div>
-      <div v-on:click="appointmentShow = true" class="appointment">New Appointment</div>
+      <div v-on:click:="" class="list">List</div>
+      <div v-on:click:="" class="search">Search</div>
+      <div v-on:click="appointmentShow = true" class="appointment">New</div>
     </div>
     <div class="weekdays">
       <div class="monday">Mo</div>
@@ -29,8 +29,8 @@
     </ul>
     <div>{{ this.day }}</div>
     <div class="colorCode"></div>
-    <day class="day" v-if="dayClicked" v-on:backDay="backDay" v-on:nextDay="nextDay" v-on:calendar="calendar" :monthDay="this.months[this.monthNum].month" :dayNum="this.dayNum" :yearNum="this.year"></day>
-    <appointmentSet class="appointmentSet" v-if="appointmentShow" v-on:backAppointment="appointmentShow = false" ></appointmentSet>
+    <day class="day" v-if="dayClicked" v-on:backDay="backDay" v-on:nextDay="nextDay" v-on:calendar="calendar" :monthDay="this.months[this.monthNum].month" :dayNum="this.dayNum" :yearNum="this.year" :appointmentsProp="this.appointment"></day>
+    <appointmentSet class="appointmentSet" v-if="appointmentShow" v-on:backAppointment="newAppointment" :appointmentProp="appointment"></appointmentSet>
   </div>
 </template>
 
@@ -67,7 +67,9 @@ export default {
         { monthNum: 9, month: 'October', days: 31, startingDay: 'sunday' },
         { monthNum: 10, month: 'November', days: 30, startingDay: 'wednesday' },
         { monthNum: 11, month: 'December', days: 31, startingDay: 'friday' }],
-      appointment: [{ timeStart: 0, timeEnd: 0, title: '', description: '', type: '' }],
+      appointment: [
+        { timeStart: 'twelveAm', timeEnd: 'twoPm', title: 'Car', description: '', type: 'personal' },
+        { timeStart: 'twopm', timeEnd: 'fivepm', title: 'Install', description: '', type: 'installation' }],
       month: '',
       monthNum: 0,
       dayNum: 0,
@@ -369,6 +371,12 @@ export default {
     },
     calendar () {
       this.dayClicked = false
+    },
+    newAppointment (appointment) {
+      this.appointmentShow = false
+      if (appointment !== null) {
+        this.appointment.push(appointment)
+      }
     }
   }
 }
@@ -448,24 +456,19 @@ export default {
     grid-row-end: 2;
     padding-top: 10px;
 }
-/*
+
 .list {
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 3;
-  background-image: url('../assets/list.ico');
   height: 100%;
   width: 100%;
-  transform: scale(.50, .50)
 }
-*/
 
 .search {
   grid-column: 3;
   grid-row: 3;
-  background-image: url('../assets/search.png');
   height: 100%;
   width: 100%;
-  transform: scale(.50,.50)
 }
 
 .appointment {
