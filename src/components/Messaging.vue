@@ -86,13 +86,13 @@ export default {
   .smallInput {
     width: 100%;
     position: fixed;
-    bottom: 20;
+    bottom: 20px;
     left: 0;
   }
 
   .smallSend {
     position: fixed;
-    bottom: 20;
+    bottom: 20px;
     right: 0;
     width: 20%;
     background-color: @secondaryColor;
