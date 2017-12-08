@@ -68,8 +68,8 @@ export default {
         { monthNum: 10, month: 'November', days: 30, startingDay: 'wednesday' },
         { monthNum: 11, month: 'December', days: 31, startingDay: 'friday' }],
       appointment: [
-        { timeStart: 'twelveAm', timeEnd: 'twoPm', title: 'Car', description: '', type: 'personal' },
-        { timeStart: 'twopm', timeEnd: 'fivepm', title: 'Install', description: '', type: 'installation' }],
+        { timeStart: 'twelveAm', timeEnd: 'twelvePm', title: 'Car', description: '', type: 'personal' },
+        { timeStart: 'twoPm', timeEnd: 'fivePm', title: 'Install', description: '', type: 'installation' }],
       month: '',
       monthNum: 0,
       dayNum: 0,
