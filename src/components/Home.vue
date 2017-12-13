@@ -10,7 +10,7 @@
     created () {
       clearInterval()
       if (this.logged === true) {
-        this.$router.push('/call')
+        this.$router.push('/account')
       }
       else {
         this.$router.push('/login')
@@ -25,7 +25,8 @@
 </script>
 
 <style scoped lang="less">
-  .main {
-  }
+.main {
+  
+}
 
 </style>

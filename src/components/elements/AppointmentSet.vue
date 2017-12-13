@@ -67,8 +67,8 @@
     </div>
     <div v-if="edit" class="appointmentView">
       <h4>{{appointment[0].title}}</h4>
-      <div class="timeStartView" id="startTime">{{appointment[0].timeStart}}-</div>
-      <div class="timeEndView" id="endTime">{{appointment[0].timeEnd}}</div>
+      <div class="timeStartView">{{appointment[0].timeStart}}-</div>
+      <div class="timeEndView">{{appointment[0].timeEnd}}</div>
       <div class="typeView">{{appointment[0].type}}</div>
       <div class="descriptionView">{{appointment[0].description}}</div>
       <div v-on:click="newAppointment" class="new">New</div>
