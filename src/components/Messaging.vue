@@ -46,56 +46,56 @@ export default {
   @secondaryColor: #50A061;
   @fontColor: #fff;
 
-  .messages {
-     background-size: cover;
-     width: 100%;
-     height: 100%;
-     margin-left: 0px;
-     margin-right: 0px;
-     margin-bottom: 0px;
-     padding-left: 0px;
-     padding-right:0px;
-     display: grid;
-     grid-template-columns: 10px repeat(5, 1fr) 10px;
-     grid-template-rows: repeat(10, 50px);
-  }
+.messages {
+   background-size: cover;
+   width: 100%;
+   height: 100%;
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   padding-left: 0px;
+   padding-right:0px;
+   display: grid;
+   grid-template-columns: 10px repeat(5, 1fr) 10px;
+   grid-template-rows: repeat(10, 50px);
+}
 
-  .outMessage {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 40px;
-    grid-column-start: 2;
-    grid-column-end: 6;
-    background-color: @backgroundColor;
-  }
+.outMessage {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 40px;
+  grid-column-start: 2;
+  grid-column-end: 6;
+  background-color: @backgroundColor;
+}
 
-  .inMessage {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 10px;
-    text-align: center;
-    line-height: 40px;
-    grid-column-start: 3;
-    grid-column-end: 7;
-    background-color: @secondaryColor;
-    color: @fontColor;
-  }
+.inMessage {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 40px;
+  grid-column-start: 3;
+  grid-column-end: 7;
+  background-color: @secondaryColor;
+  color: @fontColor;
+}
 
-  .smallInput {
-    width: 100%;
-    position: fixed;
-    bottom: 20;
-    left: 0;
-  }
+.smallInput {
+  width: 100%;
+  position: fixed;
+  bottom: 20;
+  left: 0;
+}
 
-  .smallSend {
-    position: fixed;
-    bottom: 20;
-    right: 0;
-    width: 20%;
-    background-color: @secondaryColor;
-    z-index: 2;
-  }
+.smallSend {
+  position: fixed;
+  bottom: 20;
+  right: 0;
+  width: 20%;
+  background-color: @secondaryColor;
+  z-index: 2;
+}
 </style>

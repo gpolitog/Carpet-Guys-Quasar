@@ -99,253 +99,253 @@ export default {
 
 
 <style scoped lang="less">
-  .main {
-    display: grid;
-    grid-template-columns: repeat(7,1fr);
-    grid-template-rows: repeat(15,50px);
-    overflow: hidden;
-    text-align: justify;
-  }
+.main {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-template-rows: repeat(15,50px);
+  overflow: hidden;
+  text-align: justify;
+}
 
 
-  .searchButton {
-    margin-right: 20px;
-    background-color: #fbdd21;
-    grid-column-start: 5;
-    grid-column-end: 8;
-    grid-row: 2;
-    border: solid 2px #fbdd21;
-    border-radius: 5px;
-    }
-  .search {
-    width: 100%;
-    position: relative;
+.searchButton {
+  margin-right: 20px;
+  background-color: #fbdd21;
+  grid-column-start: 5;
+  grid-column-end: 8;
+  grid-row: 2;
+  border: solid 2px #fbdd21;
+  border-radius: 5px;
   }
+.search {
+  width: 100%;
+  position: relative;
+}
 
-  .searchTerm {
-    margin-left: 20px;
-    text-align: center;
-    width: 100%;
-    border: 3px solid #fbdd21;
-    border-radius: 5px;
-    outline: none;
-    color: #9DBFAF;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row: 2;
-  }
-  h1 {
-    margin-top: 65px;
-    text-align: center;
-    grid-column-start: 1;
-    grid-column-end: 8;
-    grid-row: 2;
-    font-size: 1.4em;
-    font-family: tahoma;
-    color: #c9272b;
-  }
+.searchTerm {
+  margin-left: 20px;
+  text-align: center;
+  width: 100%;
+  border: 3px solid #fbdd21;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row: 2;
+}
+h1 {
+  margin-top: 65px;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 8;
+  grid-row: 2;
+  font-size: 1.4em;
+  font-family: tahoma;
+  color: #c9272b;
+}
 /*LEAD INFORMATION VIEW*/
 
-  .customernum {
-    margin-left: 20px;
-    border: 2px solid #fbdd21;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row: 4;
-  }
-  .firstname {
-    margin-left: 20px;
-    border: 2px solid #fbdd21;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row: 5;
-  }
-  .lastname {
-    border: 2px solid #fbdd21;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row: 5;
-  }
-  .phonenum {
-    margin-left: 10px;
-    border: 2px solid #fbdd21;
-    grid-column-start: 4;
-    grid-column-end: 7;
-    grid-row: 5;
-  }
-  .addressone {
-    margin-left: 20px;
-    border: 2px solid #fbdd21;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row: 7;
-  }
-  .addressTwo {
-    margin-left: 20px;
-    border: 2px solid #fbdd21;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row: 8;
-  }
-  .city {
-    border: 2px solid #fbdd21;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row: 7;
-  }
-  .state {
-    border: 2px solid #fbdd21;
-    grid-column-start: 5;
-    grid-column-end: 6;
-    grid-row: 7;
-  }
- .secondname {
-   margin-left: 20px;
-   border: 2px solid #fbdd21;
-   grid-column-start: 1;
-   grid-column-end: 4;
-   grid-row: 6;
- }
- .secondphone {
-   margin-left: 10px;
-   border: 2px solid #fbdd21;
-   grid-column-start: 4;
-   grid-column-end: 7;
-   grid-row: 6;
- }
+.customernum {
+  margin-left: 20px;
+  border: 2px solid #fbdd21;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row: 4;
+}
+.firstname {
+  margin-left: 20px;
+  border: 2px solid #fbdd21;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 5;
+}
+.lastname {
+  border: 2px solid #fbdd21;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row: 5;
+}
+.phonenum {
+  margin-left: 10px;
+  border: 2px solid #fbdd21;
+  grid-column-start: 4;
+  grid-column-end: 7;
+  grid-row: 5;
+}
+.addressone {
+  margin-left: 20px;
+  border: 2px solid #fbdd21;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row: 7;
+}
+.addressTwo {
+  margin-left: 20px;
+  border: 2px solid #fbdd21;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row: 8;
+}
+.city {
+  border: 2px solid #fbdd21;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row: 7;
+}
+.state {
+  border: 2px solid #fbdd21;
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row: 7;
+}
+.secondname {
+ margin-left: 20px;
+ border: 2px solid #fbdd21;
+ grid-column-start: 1;
+ grid-column-end: 4;
+ grid-row: 6;
+}
+.secondphone {
+ margin-left: 10px;
+ border: 2px solid #fbdd21;
+ grid-column-start: 4;
+ grid-column-end: 7;
+ grid-row: 6;
+}
 
-  .email {
-    margin-left: 20px;
-    border: 2px solid #fbdd21;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    grid-row: 9;
-  }
-  .zipCode {
-    border: 2px solid #fbdd21;
-    grid-column-start: 6;
-    grid-column-end: 7;
-    grid-row: 7;
-  }
-  .notes {
-    margin-left: 20px;
-    border: 2px solid #fbdd21;
-    grid-column-start: 1;
-    grid-column-end: 7;
-    grid-row-start: 10;
-    grid-row-end: 12;
-  }
-  .editButton {
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row: 12;
-    background-color: #c9272b;
-    border: solid 2px #c9272b;
-    border-radius: 5px;
-    color: white;
-  }
+.email {
+  margin-left: 20px;
+  border: 2px solid #fbdd21;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row: 9;
+}
+.zipCode {
+  border: 2px solid #fbdd21;
+  grid-column-start: 6;
+  grid-column-end: 7;
+  grid-row: 7;
+}
+.notes {
+  margin-left: 20px;
+  border: 2px solid #fbdd21;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 10;
+  grid-row-end: 12;
+}
+.editButton {
+  grid-column-start: 2;
+  grid-column-end: 6;
+  grid-row: 12;
+  background-color: #c9272b;
+  border: solid 2px #c9272b;
+  border-radius: 5px;
+  color: white;
+}
 
 
-  /* LEAD EDIT */
-  .entertitle {
-    grid-row: 1;
-    grid-column-start: 2;
-    grid-column-end: 7;
-    text-align: center;
-    line-height: 1px;
-  }
-  .userNameEdit {
-    grid-row: 3;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    margin-left: 10px;
-  }
-  .firstNameEdit {
-    grid-row: 4;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    width: 125px;
-    margin-left: 10px;
-  }
-  .middleNameEdit {
-    grid-row: 4;
-    grid-column-start: 3;
-    grid-column-end: 5;
-    width: 96px;
-    margin-left: 10px;
-  }
-  .lastNameEdit {
-    grid-row: 4;
-    grid-column-start: 5;
-    grid-column-end: 7;
-    width: 125px;
-    margin-left: 10px;
-  }
-  .phoneEdit {
-    grid-row: 5;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    margin-left: 10px;
-  }
-  .confirmButton {
-    grid-row: 13;
-    grid-column-start: 2;
-    grid-column-end: 7;
-    color: white;
-    background-color: #c9272b;
-    border: solid 2px #c9272b;
-    border-radius: 5px;
+/* LEAD EDIT */
+.entertitle {
+  grid-row: 1;
+  grid-column-start: 2;
+  grid-column-end: 7;
+  text-align: center;
+  line-height: 1px;
+}
+.userNameEdit {
+  grid-row: 3;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-left: 10px;
+}
+.firstNameEdit {
+  grid-row: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 125px;
+  margin-left: 10px;
+}
+.middleNameEdit {
+  grid-row: 4;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  width: 96px;
+  margin-left: 10px;
+}
+.lastNameEdit {
+  grid-row: 4;
+  grid-column-start: 5;
+  grid-column-end: 7;
+  width: 125px;
+  margin-left: 10px;
+}
+.phoneEdit {
+  grid-row: 5;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin-left: 10px;
+}
+.confirmButton {
+  grid-row: 13;
+  grid-column-start: 2;
+  grid-column-end: 7;
+  color: white;
+  background-color: #c9272b;
+  border: solid 2px #c9272b;
+  border-radius: 5px;
 
-  }
-  .secondnameEdit {
-    grid-row: 6;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    margin-left: 10px;
-  }
-  .secondphoneEdit {
-    grid-row: 7;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    margin-left: 10px;
-  }
-  .addressOneEdit {
-    grid-row: 8;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    margin-left: 10px;
-  }
-  .addressTwoEdit {
-    grid-row: 10;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    margin-left: 10px;
-  }
-  .cityEdit {
-    grid-row: 9;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    width: 90px;
-    margin-left: 10px;
-  }
-  .stateEdit {
-    grid-row: 9;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    width: 50px;
-  }
-  .zipCodeEdit {
-    grid-row: 9;
-    grid-column-start: 6;
-    grid-column-end: 4;
-    width: 90px;
-  }
-  .notesEdit {
-    grid-row-start: 11;
-    grid-row-end: 12;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    width: 18em;
-    margin-left: 10px;
-  }
+}
+.secondnameEdit {
+  grid-row: 6;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  margin-left: 10px;
+}
+.secondphoneEdit {
+  grid-row: 7;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-left: 10px;
+}
+.addressOneEdit {
+  grid-row: 8;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-left: 10px;
+}
+.addressTwoEdit {
+  grid-row: 10;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-left: 10px;
+}
+.cityEdit {
+  grid-row: 9;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 90px;
+  margin-left: 10px;
+}
+.stateEdit {
+  grid-row: 9;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  width: 50px;
+}
+.zipCodeEdit {
+  grid-row: 9;
+  grid-column-start: 6;
+  grid-column-end: 4;
+  width: 90px;
+}
+.notesEdit {
+  grid-row-start: 11;
+  grid-row-end: 12;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  width: 18em;
+  margin-left: 10px;
+}
 </style>

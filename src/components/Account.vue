@@ -92,155 +92,154 @@ export default {
 </script>
 
 <style scoped lang="less">
-  .main {
-    margin-top: 10px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(13,70px);
-    overflow: hidden;
-    }
+.main {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(13,70px);
+  overflow: hidden;
+  }
 
-  hidden {
-     display: none;
-    }
+hidden {
+   display: none;
+  }
 
-  .entertitle {
-    background-color: #fbdd21;
-    text-align: center;
-    font-family: tahoma;
-    font-size: 1.2em;
-    line-height: 30px;
-    margin-top: 10px;
-    grid-column-start: 4 ;
-    grid-column-end: 5;
-    }
+.entertitle {
+  background-color: #fbdd21;
+  text-align: center;
+  font-family: tahoma;
+  font-size: 1.2em;
+  line-height: 30px;
+  margin-top: 10px;
+  grid-column-start: 4 ;
+  grid-column-end: 5;
+  }
 
-    .userNameEdit {
-      margin: 10px;
-    }
+.userNameEdit {
+  margin: 10px;
+}
 
-    .firstNameEdit {
-      margin: 10px;
-    }
+.firstNameEdit {
+  margin: 10px;
+}
 
-    .middleNameEdit {
-      margin: 10px;
-    }
+.middleNameEdit {
+  margin: 10px;
+}
 
-    .lastNameEdit {
-      margin: 10px;
-    }
+.lastNameEdit {
+  margin: 10px;
+}
 
-    .phoneEdit {
-      margin: 10px;
-    }
+.phoneEdit {
+  margin: 10px;
+}
 
-    .password {
-      margin: 10px;
-    }
+.password {
+  margin: 10px;
+}
 
-    .confirmButton {
-      border: solid 2px #fbdd21;
-      border-radius: 5px;
-      text-align: center;
-      margin: 10px;
-      background-color: #fbdd21;
-    }
+.confirmButton {
+  border: solid 2px #fbdd21;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
+  background-color: #fbdd21;
+}
 
 /* Account info display */
 
-    .acctinfo {
-      margin-top: 10px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(13,70px);
-    }
+.acctinfo {
+  margin-top: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(13,70px);
+}
 
-    p {
-      margin-bottom: 10px;
-      text-align: justify;
-    }
+p {
+  margin-bottom: 10px;
+  text-align: justify;
+}
 
-    .email {
-      grid-row: 4;
-    }
+.email {
+  grid-row: 4;
+}
 
-    .acctitle {
-      background-color: #fbdd21;
-      text-align: center;
-      font-family: tahoma;
-      font-size: 1.2em;
-      line-height: 30px;
-      margin-top: 10px;
-      grid-column-start: 4 ;
-      grid-column-end: 5;
-    }
+.acctitle {
+  background-color: #fbdd21;
+  text-align: center;
+  font-family: tahoma;
+  font-size: 1.2em;
+  line-height: 30px;
+  margin-top: 10px;
+  grid-column-start: 4 ;
+  grid-column-end: 5;
+}
 
-    .firstname {
-      grid-row: 1;
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
+.firstname {
+  grid-row: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
 
-    .lastname {
-      grid-row: 1;
-      grid-column-start: 2;
-      grid-column-end: 3;
-    }
+.lastname {
+  grid-row: 1;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
 
-    .phonenum {
-      grid-row: 2;
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
+.phonenum {
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
 
-    .addressone {
-      grid-row: 2;
-      grid-column-start: 2;
-      grid-column-end: 5;
-    }
+.addressone {
+  grid-row: 2;
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
 
-    .city {
-      grid-row: 2;
-      grid-column-start: 3;
-      grid-column-end: 5;
-    }
+.city {
+  grid-row: 2;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
 
-    .state {
-      margin-left: 70px;
-      grid-row: 2;
-      grid-column-start: 3;
-      grid-column-end: 5;
-    }
+.state {
+  margin-left: 70px;
+  grid-row: 2;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
 
-    .cardnum {
-      grid-row: 3;
-      grid-column-start: 1;
-      grid-column-end: 2;
-    }
+.cardnum {
+  grid-row: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
 
-    .ccv {
-      grid-row: 3;
-      grid-column-start: 2;
-      grid-column-end: 3;
-    }
+.ccv {
+  grid-row: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
 
-    .carddate {
-      grid-row: 3;
-      grid-column-start: 3;
-      grid-column-end: 4;
-    }
+.carddate {
+  grid-row: 3;
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
 
-    .editButton {
-      border: solid 2px #fbdd21;
-      background-color: #fbdd21;
-      border-radius: 5px;
-      margin: 10px;
-      grid-row: 5;
-      grid-column-start: 1;
-      grid-column-end: 4;
-    }
-
+.editButton {
+  border: solid 2px #fbdd21;
+  background-color: #fbdd21;
+  border-radius: 5px;
+  margin: 10px;
+  grid-row: 5;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
 </style>

@@ -94,14 +94,17 @@
   font-family: "";
   src: url("");
 }
+
 @font-face {
   font-family: "";
   src: url("");
 }
+
 @font-face {
   font-family: "";
   src: url("");
 }
+
 .main {
    background-size: cover;
    width: 100%;
@@ -114,7 +117,8 @@
    display: grid;
    grid-template-columns: 100%;
    grid-template-rows: 20px 500px 10px 20px;
-  }
+}
+
 .loginBox {
   grid-column: 1;
   grid-row: 2;
@@ -128,6 +132,7 @@
   background-image: -o-linear-gradient;
   background-image: linear-gradient;
 }
+
 h1 {
   font-family: ;
   color: ;
@@ -138,6 +143,7 @@ h1 {
   font-size: ;
   padding-left: 12px;
 }
+
 input {
   background-color: transparent;
   border: none;
@@ -147,22 +153,28 @@ input {
   padding-top: 12px;
   padding-left: 14px;
 }
+
 .loginMain {
 
 }
+
 .topLogin {
  padding-bottom: 10px;
  border-left: ;
 }
+
 .bottomLogin {
   border-left: ;
 }
+
 .wrongInput {
 
 }
+
 .signIn {
 
 }
+
 .links h6 {
   text-align: center;
 }

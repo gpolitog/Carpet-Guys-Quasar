@@ -34,14 +34,17 @@ export default {
   font-family: "";
   src: url("");
 }
+
 @font-face {
   font-family: "";
   src: url("");
 }
+
 @font-face {
   font-family: "";
   src: url("");
 }
+
 .main {
    background-size: cover;
    width: 100%;
@@ -54,5 +57,5 @@ export default {
    display: grid;
    grid-template-columns: 100%;
    grid-template-rows: 20px 500px 10px 20px;
-  }
+}
 </style>

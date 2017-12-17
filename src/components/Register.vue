@@ -22,7 +22,8 @@
 </script>
 
 <style scoped lang="less">
-  .main {
-  }
+.main {
+
+}
 
 </style>

@@ -74,9 +74,11 @@ export default {
   height: 300px;
   margin: 1.2%;
 }
+
 .mapContainer {
 
 }
+
 h4 {
 
 }
