@@ -83,6 +83,7 @@ export default {
   color: @fontColor;
 }
 
+<<<<<<< HEAD
 .smallInput {
   width: 100%;
   position: fixed;
@@ -98,4 +99,21 @@ export default {
   background-color: @secondaryColor;
   z-index: 2;
 }
+=======
+  .smallInput {
+    width: 100%;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+  }
+
+  .smallSend {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    width: 20%;
+    background-color: @secondaryColor;
+    z-index: 2;
+  }
+>>>>>>> master
 </style>

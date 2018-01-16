@@ -1,8 +1,7 @@
 <template>
   <div class="main">
-    <div v-bind:class="mapContainer">
-      <h4>Current Location:</h4>
-      <mapbox :access-token="this.mapboxToken" :map-options="this.mapOptions" @map-load="mapLoaded"></mapbox>
+    <div class="mapContainer">
+      <h4>Current Location:</h4><mapbox id="map" :access-token="mapboxToken" :map-options="mapOptions" @map-load="mapLoaded"></mapbox>
     </div>
   </div>
 </template>
@@ -18,11 +17,7 @@ export default {
     mapLoaded (map) {
       let vue = this
       vue.map = map
-    },
-    callHelp () {
-      let vue = this
-      this.call = true
-      vue.map.jumpTo({
+      map.jumpTo({
         center: [vue.longitude, vue.latitude],
         zoom: 15
       })
@@ -46,22 +41,19 @@ export default {
       this.locationError = true
     }
   },
-  computed: {
-    mapContainer: function () {
-      return {
-        currentLocation: this.call === true,
-        hidden: this.call !== true
-      }
-    },
-    data: function () {
-      return {
-        map: {},
-        mapboxToken: 'pk.eyJ1IjoiZ3JhcGV0b2FzdCIsImEiOiJjajhkeHR5YzEwdXp4MnpwbWhqYzI4ejh0In0.JzUlf5asD6yOa5XvjUF5Ag',
-        mapOptions: {
-          style: 'mapbox://styles/mapbox/streets-v9',
-          center: [0, 0],
-          zoom: 1
-        }
+  data: function () {
+    return {
+      map: {},
+      longitude: 0,
+      latitude: 0,
+      altitude: 0,
+      accuracy: 0,
+      altitudeAccuracy: 0,
+      mapboxToken: 'pk.eyJ1IjoiZ3JhcGV0b2FzdCIsImEiOiJjajhkeHR5YzEwdXp4MnpwbWhqYzI4ejh0In0.JzUlf5asD6yOa5XvjUF5Ag',
+      mapOptions: {
+        style: 'mapbox://styles/mapbox/streets-v9',
+        center: [0, 0],
+        zoom: 1
       }
     }
   }
